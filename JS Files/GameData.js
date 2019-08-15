@@ -89,6 +89,8 @@ tileload =
 tooltips = function(){  
 
 //score keeper
+if(timerbonus == 1||(timerbonus > 1&&timer > 0){  
+    
 if(Math.floor(seconds) > 0&&!(score > Math.floor((3000-scoreanimation*30)+(50*(itemamount-3))*(timerbonus)))){
 
 score += Math.floor((3000-scoreanimation*30)+(50*(itemamount-3))*(timerbonus))/30;
@@ -104,6 +106,8 @@ score = Math.floor((3000-scoreanimation*30)+(50*(itemamount-3))*(timerbonus));
 if(score < 30+(50*(itemamount-3))*(timerbonus)){ score = 30+(50*(itemamount-3))*(timerbonus) }
 seconds = 0;          
 }  
+    
+}
   
 ctx.globalAlpha = 1;   
     
@@ -191,6 +195,7 @@ mousedowncheck = function(){
 
 startgame = function(){
 
+timer = 0;
 endgame = false;
 difficultypage = false;
 tileload = 
