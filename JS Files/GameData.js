@@ -55,7 +55,7 @@ mousedown = false;
 seconds = 0;
 
 itemamount = 3;
-timer = 0;
+timer = false;
 timerbonus = 1;
 
 //score is mainly used for animation
@@ -195,7 +195,15 @@ mousedowncheck = function(){
 
 startgame = function(){
 
-timer = 0;
+if(timerbonus == 1){
+timer = false;
+} else if(timerbonus == 1.25){
+timer = 120;
+} else {
+timer = 60;
+}
+    
+    
 endgame = false;
 difficultypage = false;
 tileload = 
