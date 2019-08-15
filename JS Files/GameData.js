@@ -450,7 +450,7 @@ completion -= 1;
 }
     
 if(completion <= 0&&!endgame){
-scoreanimation = score;
+scoreanimation = seconds;
 endgame = true;
 difficultypage = false;
 music.pause();
