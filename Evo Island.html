@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+       <style>
+           
+#canvas {
+  margin: auto;
+  display: block;
+  position:absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: -webkit-linear-gradient(top, #310473 0%, #1c0047 92%, #130030 100%);
+  background: -o-linear-gradient(top, #310473 0%, #1c0047 92%, #130030 100%);
+  background: -ms-linear-gradient(top, #310473 0%, #1c0047 92%, #130030 100%);
+  background: linear-gradient(to bottom, #310473 0%, #1c0047 92%, #130030 100%);
+}
+           
+@font-face {
+  src: url("SG12.ttf") format('truetype');
+  font-family: "SG12";  
+}       
+
+body {
+overflow:hidden;
+}
+        
+        </style>
+    </head>
+    
+    <body>
+<canvas tabindex="1" id="canvas" width="528px" height="297px" style='outline:none;left:0px;top:0px;'></canvas>     
+        
+ <!--Has to be this exact order otherwise gamedata will call a class that doesn't exist which will freeze the game -->
+        
+<script type="text/javascript" src="JS Files/ItemClass.js"></script>
+        
+<script type="text/javascript" src="JS Files/PixpetClass.js"></script> 
+        
+<script type="text/javascript" src="JS Files/GameData.js"></script>  
+        
+    </body>
+                                                                     
+</html>        
