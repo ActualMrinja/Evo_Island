@@ -89,7 +89,7 @@ tileload =
 tooltips = function(){  
 
 //score keeper
-if(timerbonus == 1||(timerbonus > 1&&timer > 0){  
+if(timerbonus == 1||(timerbonus > 1&&timer > 0)){  
     
 if(Math.floor(seconds) > 0&&!(score > Math.floor((3000-scoreanimation*30)+(50*(itemamount-3))*(timerbonus)))){
 
@@ -145,14 +145,11 @@ textmaker("YOUR TIME IS UP",140,125,25);
     ctx.drawImage(gifload[21],(264-gifload[21].width/6)*(hs/297),110*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297));
     if(collision(mousex,mousey,0,0,(264-gifload[21].width/6)*(hs/297),110*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297))&&mousedown){ 
      
-     if(timer == false){
-     timer = 120;
+     if(timerbonus == 1){
      timerbonus = 1.25;
-     } else if(timer == 120) {
-     timer = 60;
+     } else if(timerbonus == 1.25) {
      timerbonus = 1.5;
      } else {
-     timer = false;
      timerbonus = 1;
      }
         
@@ -171,7 +168,9 @@ textmaker("YOUR TIME IS UP",140,125,25);
      
    collision(mousex,mousey,0,0,(264-gifload[21].width/6)*(hs/297),210*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297)) ? ctx.globalAlpha = 1 : ctx.globalAlpha = 0.75;
     ctx.drawImage(gifload[21],(264-gifload[21].width/6)*(hs/297),210*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297));
-    if(collision(mousex,mousey,0,0,(264-gifload[21].width/6)*(hs/297),210*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297))&&mousedown){ startgame() }
+    if(collision(mousex,mousey,0,0,(264-gifload[21].width/6)*(hs/297),210*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297))&&mousedown){ 
+    
+    }
     textmaker("PLAY",242,235,15);       
         
     }
