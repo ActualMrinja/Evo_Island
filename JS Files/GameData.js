@@ -109,12 +109,9 @@ ctx.globalAlpha = 1;
     
 if(difficultypage){
 textmaker("CHOOSE YOUR DIFFICULTY",80,100,25); 
-} else if(!timer||timer > 0) {
-    
+} else if(timerbonus == 1||(timerbonus > 1&&timer > 0)) {  
 textmaker("FINAL SCORE: "+Math.floor(score),264-ctx.measureText("FINAL SCORE: "+Math.floor(score)).width/(0.78*(hs/297)),125,25);
-    //alert(ctx.measureText("FINAL SCORE: "+Math.floor(score)).width);
 } else {
-    alert(timer);
 textmaker("YOUR TIME IS UP",140,125,25); 
 }
 
