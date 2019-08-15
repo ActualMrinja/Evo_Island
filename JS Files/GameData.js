@@ -172,7 +172,7 @@ textmaker("YOUR TIME IS UP",140,125,25);
    collision(mousex,mousey,0,0,(264-gifload[21].width/6)*(hs/297),210*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297)) ? ctx.globalAlpha = 1 : ctx.globalAlpha = 0.75;
     ctx.drawImage(gifload[21],(264-gifload[21].width/6)*(hs/297),210*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297));
     if(collision(mousex,mousey,0,0,(264-gifload[21].width/6)*(hs/297),210*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297))&&mousedown){ 
-    
+    startgame();
     }
     textmaker("PLAY",242,235,15);       
         
