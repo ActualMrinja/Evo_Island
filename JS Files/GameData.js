@@ -147,10 +147,13 @@ textmaker("YOUR TIME IS UP",140,125,25);
      
      if(timerbonus == 1){
      timerbonus = 1.25;
+     timer = 120;
      } else if(timerbonus == 1.25) {
      timerbonus = 1.5;
+     timer = 60;
      } else {
      timerbonus = 1;
+     timer = false;
      }
         
     }
