@@ -335,7 +335,13 @@ fullscreencode = function(){
     canvas.msRequestFullscreen();
   } 
     
-ws = document.body.clientWidth;
+//If both are supported choose the lesser, if not choose the one that is supported. This helps with mobile support
+ws = (window.innerWidth && document.documentElement.clientWidth) ? 
+Math.min(window.innerWidth, document.documentElement.clientWidth) : 
+window.innerWidth || 
+document.documentElement.clientWidth || 
+document.body.clientWidth;
+     
 hs = Math.floor(ws/(528/297));
 canvas.width = ws
 canvas.height = hs;
