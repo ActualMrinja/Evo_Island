@@ -381,6 +381,17 @@ if((!document.fullscreenElement&&!document.mozFullScreen&&!document.webkitisFull
  hs = canvas.height;
  fullscreen.src = "Gif Files/FullScreenButton.gif";
 }
+ 
+if(canvas.width !== 528){
+ws =  (window.innerWidth && document.documentElement.clientWidth) ? 
+Math.min(window.innerWidth, document.documentElement.clientWidth) : 
+window.innerWidth || 
+document.documentElement.clientWidth || 
+document.body.clientWidth;
+hs = Math.floor(ws/(528/297));
+canvas.width = ws
+canvas.height = hs;
+}
     
     
 ctx.clearRect(0,0,canvas.width,canvas.height);
