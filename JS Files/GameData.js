@@ -342,7 +342,8 @@ canvas.height = hs;
 fullscreen.src = "Gif Files/SmallScreenButton.gif";
 mousedown = false;   
  } else {
-        
+    
+  /**Testing till fixed
   if (document.exitFullscreen) {
     document.exitFullscreen();
   } else if (document.mozCancelFullScreen) { /* Firefox */
@@ -351,7 +352,8 @@ mousedown = false;
     document.webkitExitFullscreen();
   } else if (document.msExitFullscreen) { /* IE/Edge */
     document.msExitFullscreen();
-  } 
+  }**/
+  
      
 
 ws = canvas.width;
@@ -367,13 +369,14 @@ mousedown = false;
 maingame = function(){
     
 //if made small screen through tab hiding it will be become small screen automatically
+/** Testing till fixed
 if((!document.fullscreenElement&&!document.mozFullScreen&&!document.webkitisFullscreen&&!document.msFullScreenElement)){  
  canvas.width = 528;
  canvas.height = 297;
  ws = canvas.width;
  hs = canvas.height;
  fullscreen.src = "Gif Files/FullScreenButton.gif";
-}
+}**/
     
     
 ctx.clearRect(0,0,canvas.width,canvas.height);
