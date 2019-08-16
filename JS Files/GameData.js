@@ -121,7 +121,7 @@ textmaker("YOUR TIME IS UP",140,125,25);
 
     if(!difficultypage){
     
-    if(seconds <= 0){
+    if(seconds <= 0||(timerbonus > 1&&timer == 0)){
     collision(mousex,mousey,0,0,(264-gifload[21].width/6)*(hs/297),150*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297)) ? ctx.globalAlpha = 1 : ctx.globalAlpha = 0.75;
     ctx.drawImage(gifload[21],(264-gifload[21].width/6)*(hs/297),150*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297));
     if(collision(mousex,mousey,0,0,(264-gifload[21].width/6)*(hs/297),150*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297))&&mousedown){ difficultypage = true }
