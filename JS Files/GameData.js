@@ -157,7 +157,7 @@ textmaker("YOUR TIME IS UP",140,125,25);
      }
         
     }
-    textmaker((!timer) ? "TIMER: NONE" :"TIMER: "+timer+"S",230,132,10);    
+    textmaker((!timer) ? "TIMER: NONE" :"TIMER: "+((timerbonus == 1.5) ? "60" : "120")+"S",230,132,10);    
         
      collision(mousex,mousey,0,0,(264-gifload[21].width/6)*(hs/297),160*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297)) ? ctx.globalAlpha = 1 : ctx.globalAlpha = 0.75;
     ctx.drawImage(gifload[21],(264-gifload[21].width/6)*(hs/297),160*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297));
@@ -400,7 +400,11 @@ for(let tileloady = 0;tileloady < 7;tileloady++){
 }
    
 if(clockanimation > 0){
+    
+if(timerbonus == 1){
 textmaker("-25%",110,44.5,10); 
+}    
+    
 clockanimation -= 1/30;
 }
     
