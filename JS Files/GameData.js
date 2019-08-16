@@ -414,6 +414,17 @@ ctx.globalAlpha = 1;
 for(let tileloady = 0;tileloady < 7;tileloady++){      
  for(let tileload = 0;tileload < 16;tileload++){
   ctx.drawImage(((tileload == 0||tileload == 15)||((tileloady >= 1&&tileloady <= 5)&&(tileload == 1||tileload == 14))) ? gifload[4] : gifload[3],(tileload*32+8)*(hs/297),((tileloady*32)+50)*(hs/297),32*(hs/297),32*(hs/297));
+ 
+   //You can also control pixpets by clicking tiles
+   if(collision(mousex,mousey,0,0,(tileload*32+8)*(hs/297),(tileloady*32+50)*(hs/297),32*(hs/297),32*(hs/297))&&mousedown&&tileloady == pixpets[currentpixpet].Y&&tileload-1 == pixpets[currentpixpet].X){
+   pixpets[currentpixpet].keyDown(39);
+   } else if(collision(mousex,mousey,0,0,(tileload*32+8)*(hs/297),(tileloady*32+50)*(hs/297),32*(hs/297),32*(hs/297))&&mousedown&&tileloady == pixpets[currentpixpet].Y&&tileload+1 == pixpets[currentpixpet].X){
+   pixpets[currentpixpet].keyDown(37);
+   } else if(collision(mousex,mousey,0,0,(tileload*32+8)*(hs/297),(tileloady*32+50)*(hs/297),32*(hs/297),32*(hs/297))&&mousedown&&tileloady+1 == pixpets[currentpixpet].Y&&tileload == pixpets[currentpixpet].X){
+   pixpets[currentpixpet].keyDown(38);
+   } else if(collision(mousex,mousey,0,0,(tileload*32+8)*(hs/297),(tileloady*32+50)*(hs/297),32*(hs/297),32*(hs/297))&&mousedown&&tileloady-1 == pixpets[currentpixpet].Y&&tileload == pixpets[currentpixpet].X){
+   pixpets[currentpixpet].keyDown(40);
+   }
  }
 }
    
