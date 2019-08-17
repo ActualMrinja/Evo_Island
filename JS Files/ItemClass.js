@@ -167,6 +167,7 @@ item.prototype.sensecheck = function(returnallow=false){
 item.prototype.spotaken = function(check){
  
   if(this.Type == "Ancient_Tectonic_Clock"){
+  pixpets[this.Held].Inventory = -1;
   seconds *= 0.25;
   items.splice(items.indexOf(this),1);
   clockanimation = 2;
