@@ -257,12 +257,12 @@ pixpet.prototype.specialcheck = function(checktype,check){
   return true;
   } 
       
-    if(checktype == "Pixpet_Transporter"&&items[invenitem].Type == checktype&&this.X == items[invenitem].X&&this.Y == items[invenitem].Y&&items[invenitem].Held == -1){
+    if(checktype == "Pixpet_Transporter"&&items[invenitem].Type == checktype&&this.X == items[invenitem].X&&this.Y == items[invenitem].Y&&items[invenitem].Held == -1&&items[invenitem].Frame == 1){
   
     for(let transport = 0;transport < items.length;transport++){
     
     //location swapper
-    if(items[transport].Type == "Pixpet_Transporter"&&items[transport] !== items[invenitem]&&items[transport].Held ==     -1&&items[transport].Frame == 1){
+    if(items[transport].Type == "Pixpet_Transporter"&&items[transport] !== items[invenitem]&&items[transport].Held ==-1&&items[transport].Frame == 1){
       
       for(let pixpettransport = 0;pixpettransport < pixpets.length;pixpettransport++){
     
