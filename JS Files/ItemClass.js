@@ -194,7 +194,7 @@ item.prototype.spotaken = function(check){
    if((this !== items[itemc]&&check[1] == items[itemc].X&&check[0] == items[itemc].Y)&&items[itemc].Held == -1&&(!(items[itemc].Type == "Lily_Pad"&&items[itemc].LilyPadTile == false)||this.Type == "Ball_Capsule")){
        
    //Capsules use this to their advantage
-   if(this.Checking == -1&&this.Type == "Ball_Capsule"&&!(items[itemc].Type !== "Sunobrope"&&items[itemc].Connected)){
+   if(this.Checking == -1&&this.Type == "Ball_Capsule"&&items[itemc].LilyPadTile == false&&!(items[itemc].Type !== "Sunobrope"&&items[itemc].Connected)){
        
    this.Checking = currentpixpet;
    pixpets[currentpixpet].Inventory = items[itemc];
@@ -205,8 +205,10 @@ item.prototype.spotaken = function(check){
    soundeffect("Audio Files/ItemPickup.mp3");
    }
     
+   if(items[itemc].LilyPadTile == false){
    soundeffect("Audio Files/ItemDenied.mp3");
    return true;
+   }
        
    } else if((this !== items[itemc]&&check[1] == items[itemc].X&&check[0] == items[itemc].Y)&&items[itemc].Held == -1&&items[itemc].Type == "Lily_Pad"&&!items[itemc].sandtile()){
    items[itemc].LilyPadTile = this;    
