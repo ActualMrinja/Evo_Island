@@ -257,7 +257,7 @@ pixpet.prototype.specialcheck = function(checktype,check){
   return true;
   } 
       
-    if(checktype == "Pixpet_Transporter"&&items[invenitem].Type == checktype&&this.X == items[invenitem].X&&this.Y == items[invenitem].Y&&items[invenitem].Held == -1&&items[invenitem].Frame == 1){
+    if(checktype == "Pixpet_Transporter"&&items[invenitem].Type == checktype&&this.X == items[invenitem].X&&this.Y == items[invenitem].Y&&items[invenitem].Held == -1){
   
     for(let transport = 0;transport < items.length;transport++){
     
@@ -269,15 +269,14 @@ pixpet.prototype.specialcheck = function(checktype,check){
       if(pixpets[pixpettransport].X == items[transport].X&&pixpets[pixpettransport].Y == items[transport].Y&&pixpets[pixpettransport] !== this){
       pixpets[pixpettransport].X = this.X;
       pixpets[pixpettransport].Y = this.Y;  
-      break
-      }
-       
-      }
-         
       this.X = items[transport].X;
       this.Y = items[transport].Y;  
       soundeffect("Audio Files/Teleport.mp3");
       return;
+      }
+       
+      }        
+
     }
 
   //Transport loop
