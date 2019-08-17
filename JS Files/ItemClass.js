@@ -170,6 +170,7 @@ item.prototype.spotaken = function(check){
   seconds *= 0.25;
   items.splice(items.indexOf(this),1);
   clockanimation = 2;
+  return;
   }
 
     for(let itemc = 0;itemc < items.length;itemc++){
