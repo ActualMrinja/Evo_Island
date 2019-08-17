@@ -238,40 +238,44 @@ pixpets.push(new pixpet("Troffinch",14,4));
 pixpets.push(new pixpet("Feliphene",14,2));
 music.play();
     
-specialitems =  ["Evolution_Fruit_Thermos_Bottle","Ball_Capsule","Great_Oceanic_Clock","Ancient_Tectonic_Clock","Wooden_Chest"];
+let itemlocations = [[15,6],[15,4],[15,2],[15,0],[14,5],[14,3],[14,1]];
+let specialitems =  ["Evolution_Fruit_Thermos_Bottle","Ball_Capsule","Great_Oceanic_Clock","Ancient_Tectonic_Clock","Wooden_Chest"];
+    
+let itemlocator = Math.floor(Math.random()*itemlocations.length);
     
 //Essential items that will ensure winning is possible
 if(Math.floor(Math.random()*2) == 0){
-items.push(new item("Wooden_Raft",15,0));
+items.push(new item("Wooden_Raft",itemlocations[itemlocator][0],itemlocations[itemlocator][1]));
+itemlocations.splice(itemlocator,1);
 } else {
-items.push(new item("Lily_Pad",15,0));
-items.push(new item("Lily_Pad",15,2));
+items.push(new item("Lily_Pad",itemlocations[itemlocator][0],itemlocations[itemlocator][1]));
+itemlocations.splice(itemlocator,1);
+itemlocator = Math.floor(Math.random()*itemlocations.length);
+items.push(new item("Lily_Pad",itemlocations[itemlocator][0],itemlocations[itemlocator][1]));
+itemlocations.splice(itemlocator,1);
 } 
-    
+
+itemlocator = Math.floor(Math.random()*itemlocations.length);
 if(Math.floor(Math.random()*2) == 0){
-items.push(new item("Pixeldust_Boots",14,5));
-} else if(Math.floor(Math.random()*2) == 1) {
-items.push(new item("Sunobrope",14,5));
-items.push(new item("Sunobrope",15,6));
+items.push(new item("Pixeldust_Boots",itemlocations[itemlocator][0],itemlocations[itemlocator][1]));
+itemlocations.splice(itemlocator,1);
 } else {
-items.push(new item("Pixpet_Transporter",14,5));
-items.push(new item("Pixpet_Transporter",15,6));
-}  
+items.push(new item((Math.floor(Math.random()*2) == 1) ? "Sunobrope" : "Pixpet_Transporter",itemlocations[itemlocator][0],itemlocations[itemlocator][1]));
+itemlocations.splice(itemlocator,1);
+itemlocator = Math.floor(Math.random()*itemlocations.length);
+items.push(new item(items[items.length-1].Type,itemlocations[itemlocator][0],itemlocations[itemlocator][1]));
+itemlocations.splice(itemlocator,1);
+}
     
 for(let specialitem = 0;specialitem < itemamount-2;specialitem++){
 itempicked = specialitems[Math.floor(Math.random()*specialitems.length)]; 
- 
-if(specialitem == 0){
-items.push(new item((itempicked),15,4)); 
-} else if(specialitem == 1){
-items.push(new item((itempicked),14,3)); 
-} else {
-items.push(new item((itempicked),14,1)); 
-}
+itemlocator = Math.floor(Math.random()*itemlocations.length); 
+
+items.push(new item((itempicked),itemlocations[itemlocator][0],itemlocations[itemlocator][1])); 
     
-specialitems.splice(specialitems.indexOf(itempicked),1);     
-}
-    
+specialitems.splice(specialitems.indexOf(itempicked),1);   
+itemlocations.splice(itemlocator,1);
+} 
     
 }
 
