@@ -98,6 +98,8 @@ tileload =
 
 tooltips = function(){  
 
+    
+    
 //score keeper
 if(timerbonus == 1||(timerbonus > 1&&timer > 0)){  
     
@@ -130,7 +132,15 @@ textmaker("YOUR TIME IS UP",140,125,25);
 }
 
     if(!difficultypage){
-    
+        
+     if(timerbonus == 1){
+     timer = false;
+     } else if(timerbonus == 1.25) {
+     timer = 120;
+     } else {
+     timer = 60;
+     }    
+        
     if(seconds <= 0||(timerbonus > 1&&timer == 0)){
     collision(mousex,mousey,0,0,(264-gifload[21].width/6)*(hs/297),150*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297)) ? ctx.globalAlpha = 1 : ctx.globalAlpha = 0.75;
     ctx.drawImage(gifload[21],(264-gifload[21].width/6)*(hs/297),150*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297));
