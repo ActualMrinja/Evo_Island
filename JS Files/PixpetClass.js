@@ -98,7 +98,7 @@ pixpet.prototype.keyDown = function(keyCode){
      (!this.sandtile()) ? tileload[this.Y][this.X] = 0 : tileload[this.Y][this.X] = 1;
      tileload[this.Y-1][this.X] = 2;
      this.Y -= 1;
-     this.specialcheck("Pixpet_Transporter",[-1,0])   
+     this.specialcheck("Pixpet_Transporter",[0,0])   
  }  
      
  this.Image.src = "Png Files/"+this.Species+"SmallBack.png";
@@ -112,7 +112,7 @@ pixpet.prototype.keyDown = function(keyCode){
      (!this.sandtile()) ? tileload[this.Y][this.X] = 0 : tileload[this.Y][this.X] = 1;
      tileload[this.Y][this.X-1] = 2;
      this.X -= 1 
-     this.specialcheck("Pixpet_Transporter",[0,-1])  
+     this.specialcheck("Pixpet_Transporter",[0,0])  
  }
      
  this.Image.src = "Png Files/"+this.Species+"SmallLeft.png";
@@ -126,7 +126,7 @@ pixpet.prototype.keyDown = function(keyCode){
      (!this.sandtile()) ? tileload[this.Y][this.X] = 0 : tileload[this.Y][this.X] = 1;
      tileload[this.Y][this.X+1] = 2;
      this.X += 1 
-     this.specialcheck("Pixpet_Transporter",[0,+1])  
+     this.specialcheck("Pixpet_Transporter",[0,0])  
  }
  this.Image.src = "Png Files/"+this.Species+"SmallRight.png";
  this.Direction = 3;
@@ -139,7 +139,7 @@ pixpet.prototype.keyDown = function(keyCode){
      (!this.sandtile()) ? tileload[this.Y][this.X] = 0 : tileload[this.Y][this.X] = 1;
      tileload[this.Y+1][this.X] = 2;
      this.Y += 1;
-     this.specialcheck("Pixpet_Transporter",[+1,0])
+     this.specialcheck("Pixpet_Transporter",[0,0])
      
  }    
  this.Image.src = "Png Files/"+this.Species+"SmallFront.png";
