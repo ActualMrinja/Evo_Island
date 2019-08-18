@@ -442,13 +442,13 @@ for(let tileloady = 0;tileloady < 7;tileloady++){
   if(!endgame){  
      
    //You can also control pixpets by clicking tiles
-   if(collision(mousex,mousey,0,0,(tileload*32+8)*(hs/297),(tileloady*32+50)*(hs/297),32*(hs/297),32*(hs/297))&&mousedown&&tileloady == pixpets[currentpixpet].Y&&tileload-1 == pixpets[currentpixpet].X&&this.X < 15){
+   if(collision(mousex,mousey,0,0,(tileload*32+8)*(hs/297),(tileloady*32+50)*(hs/297),32*(hs/297),32*(hs/297))&&mousedown&&tileloady == pixpets[currentpixpet].Y&&tileload-1 == pixpets[currentpixpet].X&&pixpets[currentpixpet].X < 15){
    pixpets[currentpixpet].keyDown(39);
-   } else if(collision(mousex,mousey,0,0,(tileload*32+8)*(hs/297),(tileloady*32+50)*(hs/297),32*(hs/297),32*(hs/297))&&mousedown&&tileloady == pixpets[currentpixpet].Y&&tileload+1 == pixpets[currentpixpet].X&&this.X > 0){
+   } else if(collision(mousex,mousey,0,0,(tileload*32+8)*(hs/297),(tileloady*32+50)*(hs/297),32*(hs/297),32*(hs/297))&&mousedown&&tileloady == pixpets[currentpixpet].Y&&tileload+1 == pixpets[currentpixpet].X&&pixpets[currentpixpet].X > 0){
    pixpets[currentpixpet].keyDown(37);
-   } else if(collision(mousex,mousey,0,0,(tileload*32+8)*(hs/297),(tileloady*32+50)*(hs/297),32*(hs/297),32*(hs/297))&&mousedown&&tileloady+1 == pixpets[currentpixpet].Y&&tileload == pixpets[currentpixpet].X&&this.Y > 0){
+   } else if(collision(mousex,mousey,0,0,(tileload*32+8)*(hs/297),(tileloady*32+50)*(hs/297),32*(hs/297),32*(hs/297))&&mousedown&&tileloady+1 == pixpets[currentpixpet].Y&&tileload == pixpets[currentpixpet].X&&pixpets[currentpixpet].Y > 0){
    pixpets[currentpixpet].keyDown(38);
-   } else if(collision(mousex,mousey,0,0,(tileload*32+8)*(hs/297),(tileloady*32+50)*(hs/297),32*(hs/297),32*(hs/297))&&mousedown&&tileloady-1 == pixpets[currentpixpet].Y&&tileload == pixpets[currentpixpet].X&&this.Y < 6){
+   } else if(collision(mousex,mousey,0,0,(tileload*32+8)*(hs/297),(tileloady*32+50)*(hs/297),32*(hs/297),32*(hs/297))&&mousedown&&tileloady-1 == pixpets[currentpixpet].Y&&tileload == pixpets[currentpixpet].X&&pixpets[currentpixpet].Y < 6){
    pixpets[currentpixpet].keyDown(40);
    }
      
