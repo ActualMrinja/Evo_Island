@@ -23,9 +23,10 @@ ctx = canvas.getContext("2d");
 19 is Sound Effects On
 20 is Sound Effect Off
 21 is Full Button
+22 is Player Selected
 **/
 
-gifname = ["Gif Files/Header.gif","Gif Files/FullScreenButton.gif","Gif Files/SmallScreenButton.gif","Gif Files/OceanTile.gif","Gif Files/SandTile.gif","Gif Files/Drax.gif","Gif Files/Canisqua.gif","Gif Files/Unicubb.gif","Gif Files/Troffinch.gif","Gif Files/Feliphene.gif","Gif Files/SwitchButton.gif","Gif Files/UpButton.gif","Gif Files/RightButton.gif","Gif Files/DownButton.gif","Gif Files/LeftButton.gif","Gif Files/InventoryButton.gif","Gif Files/InventoryBox.gif","Gif Files/MusicOnButton.gif","Gif Files/MusicOffButton.gif","Gif Files/SoundEffectOnButton.gif","Gif Files/SoundEffectOffButton.gif","Gif Files/FullButton.gif"];
+gifname = ["Gif Files/Header.gif","Gif Files/FullScreenButton.gif","Gif Files/SmallScreenButton.gif","Gif Files/OceanTile.gif","Gif Files/SandTile.gif","Gif Files/Drax.gif","Gif Files/Canisqua.gif","Gif Files/Unicubb.gif","Gif Files/Troffinch.gif","Gif Files/Feliphene.gif","Gif Files/SwitchButton.gif","Gif Files/UpButton.gif","Gif Files/RightButton.gif","Gif Files/DownButton.gif","Gif Files/LeftButton.gif","Gif Files/InventoryButton.gif","Gif Files/InventoryBox.gif","Gif Files/MusicOnButton.gif","Gif Files/MusicOffButton.gif","Gif Files/SoundEffectOnButton.gif","Gif Files/SoundEffectOffButton.gif","Gif Files/FullButton.gif","Gif Files/PlayerSelected.gif"];
 gifload = [];
 
 preloadname = ["Png Files/Wooden_Raft.png","Png Files/Sunobrope.png","Png Files/Sunobrope_Rope.png","Png Files/Pixpet_Transporter.png","Png Files/PixeldustTrails.png","Png Files/Pixeldust_Boots.png","Png Files/Lily_Pad.png","Png Files/Ancient_Tectonic_Clock.png","Png Files/Great_Oceanic_Clock.png","Png Files/Evolution_Fruit_Thermos_Bottle.png","Png Files/Ball_Capsule.png","Png Files/Wooden_Raft.png","Png Files/Wooden_Chest.png","Png Files/UnicubbSmallRight.png","Png Files/UnicubbSmallLeft.png","Png Files/UnicubbSmallFront.png","Png Files/UnicubbSmallBack.png","Png Files/TroffinchSmallRight.png","Png Files/TroffinchSmallLeft.png","Png Files/TroffinchSmallFront.png","Png Files/TroffinchSmallBack.png","Png Files/DraxSmallRight.png","Png Files/DraxSmallLeft.png","Png Files/DraxSmallFront.png","Png Files/DraxSmallBack.png","Png Files/FelipheneSmallRight.png","Png Files/FelipheneSmallLeft.png","Png Files/FelipheneSmallFront.png","Png Files/FelipheneSmallBack.png","Png Files/CanisquaSmallRight.png","Png Files/CanisquaSmallLeft.png","Png Files/CanisquaSmallFront.png","Png Files/CanisquaSmallBack.png"];
@@ -49,8 +50,10 @@ fullscreen.src = "Gif Files/FullScreenButton.gif";
 
 
 currentpixpet = 0;
+selectanimation = 0;
+selectloop = 0;
 pixpets = [];
-pixpets.push(new pixpet("Drax",14,3));
+pixpets.push(new pixpet("Drax",1,3));
 
 /**Lily Pads should always be the first/second item coding wise and visually because they are also tiles**/
 items = [];
@@ -124,6 +127,7 @@ seconds = 0;
 ctx.globalAlpha = 1;   
     
 if(difficultypage){
+textmaker("BRING ALL PIXPETS AND ITEMS TO EVO ISLAND",58,70,15); 
 textmaker("CHOOSE YOUR DIFFICULTY",80,100,25); 
 } else if(timerbonus == 1||(timerbonus > 1&&timer > 0)) {  
 textmaker("FINAL SCORE: "+Math.floor(score),264-ctx.measureText("FINAL SCORE: "+Math.floor(score)).width/(0.78*(hs/297)),125,25);
@@ -149,7 +153,7 @@ textmaker("YOUR TIME IS UP",140,125,25);
       music.play();
       currentpixpet = 0;
       pixpets = [];
-      pixpets.push(new pixpet("Drax",14,3));
+      pixpets.push(new pixpet("Drax",1,3));
       items = [];
     }
     textmaker("TRY AGAIN",(277-gifload[21].width/6),173,12);
@@ -237,25 +241,27 @@ endgame = false;
 difficultypage = false;
 tileload = 
     [ [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-      [1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,2],
-      [1,1,0,0,0,0,0,0,0,0,0,0,0,0,2,1],
-      [1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,2],
-      [1,1,0,0,0,0,0,0,0,0,0,0,0,0,2,1],
-      [1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,2],
+      [2,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1],
+      [1,2,0,0,0,0,0,0,0,0,0,0,0,0,1,1],
+      [2,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1],
+      [1,2,0,0,0,0,0,0,0,0,0,0,0,0,1,1],
+      [2,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1],
       [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
     ];     
 seconds = 0;
 score = 0;
 pixpets = [];
 items = [];
-pixpets.push(new pixpet("Drax",15,1));
-pixpets.push(new pixpet("Canisqua",15,3));
-pixpets.push(new pixpet("Unicubb",15,5));
-pixpets.push(new pixpet("Troffinch",14,4));
-pixpets.push(new pixpet("Feliphene",14,2));
+pixpets.push(new pixpet("Drax",0,1));
+pixpets.push(new pixpet("Canisqua",0,3));
+pixpets.push(new pixpet("Unicubb",0,5));
+pixpets.push(new pixpet("Troffinch",1,4));
+pixpets.push(new pixpet("Feliphene",1,2));
+selectloop = 0;
+selectanimation = 0;
 music.play();
     
-let itemlocations = [[15,6],[15,4],[15,2],[15,0],[14,5],[14,3],[14,1]];
+let itemlocations = [[0,6],[0,4],[0,2],[0,0],[1,5],[1,3],[1,1]];
 let specialitems =  ["Evolution_Fruit_Thermos_Bottle","Ball_Capsule","Great_Oceanic_Clock","Ancient_Tectonic_Clock","Wooden_Chest"];
     
 let itemlocator = Math.floor(Math.random()*itemlocations.length);
@@ -332,6 +338,9 @@ if(event.keyCode == 81){
     if(currentpixpet >= pixpets.length){
     currentpixpet = 0;
     } 
+    
+    selectanimation = 0;
+    selectloop = 0;
     
 } else {
 
@@ -515,7 +524,7 @@ completion = pixpets.length+items.length;
 for(let itemload = 0;itemload < items.length;itemload++){
 items[itemload].draw();
     
-if(items[itemload].X < 2||items[itemload].Held !== -1){
+if(items[itemload].X > 13||items[itemload].Held !== -1){
 completion -= 1;
 }    
     
@@ -524,7 +533,7 @@ completion -= 1;
 for(let pixpetload = 0;pixpetload < pixpets.length;pixpetload++){
 pixpets[pixpetload].draw(pixpetload);
   
-if(pixpets[pixpetload].X < 2){
+if(pixpets[pixpetload].X > 13){
 completion -= 1;
 }
     
@@ -584,9 +593,23 @@ if(!endgame){
     ctx.drawImage((music.volume == 0) ? gifload[18] : gifload[17],5*(hs/297),268*(hs/297),64/3*(hs/297),64/3*(hs/297));
     if(collision(mousex,mousey,0,0,5*(hs/297),268*(hs/297),64/3*(hs/297),64/3*(hs/297))&&mousedown){ (music.volume == 0) ? music.volume = 1 : music.volume = 0; mousedown = false;} 
  
+    //selected pixpet animation
+    if(selectloop < 3&&!endgame){ 
+    ctx.globalAlpha = 1;
+    ctx.drawImage(gifload[22],(pixpets[currentpixpet].X*32+18)*(hs/297),(pixpets[currentpixpet].Y*32+30-selectanimation)*    (hs/297),gifload[22].width/3*(hs/297),gifload[22].height/3*(hs/297)); 
+    
+    if(selectloop < 3){       
+    selectanimation += 0.25;
+    if(selectanimation > 3){
+    selectanimation = 0;
+    selectloop += 1;
+      }    
+     }
+    }    
+    
 if(endgame){
 tooltips();
-}   
+} 
     
 mousedown = false;
     
