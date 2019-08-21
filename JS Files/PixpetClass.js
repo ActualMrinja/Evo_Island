@@ -1,8 +1,8 @@
 pixpet = function(species,x,y){
  
 this.Image = new Image();
-this.Image.src = "Png Files/"+species+"SmallLeft.png"
-this.Direction = 2;
+this.Image.src = "Png Files/"+species+"SmallRight.png"
+this.Direction = 3;
 this.Frame = 0;
 this.X = x;
 this.Y = y;
@@ -16,13 +16,13 @@ this.BootWalk = false;
 
 //inventory drop code to reduce redundant coding
 pixpet.prototype.inventorydrop = function(){
-  
+   
   //sense check resets the tiles
   this.Inventory.sensecheck();
   this.Inventory = -1;
       
   //Capsule is being held
-  if(this.CapsuleItem !== -1){     
+  if(this.CapsuleItem !== -1){ 
   this.Inventory = this.CapsuleItem;
   this.Inventory.Held = currentpixpet;
   this.Inventory.Checking = -1;
@@ -57,11 +57,17 @@ pixpet.prototype.draw = function(index){
     ctx.drawImage(this.Image,(this.Image.width/2)*Math.floor(this.Frame)+0.25,0,this.Image.width/2-0.5,this.Image.height,(this.X*32+10)*(hs/297),(this.Y*32+50)*(hs/297),this.Image.width/6*(hs/297),this.Image.height/3*(hs/297));
     this.Frame += 1/30;
     if(this.Frame > 2){ this.Frame = 0 }
+    
+    //Pixpets can also be selected through clicking them, their mugshot will immediately load when clicked because of this
+    if(collision(mousex,mousey,0,0,(this.X*32+10)*(hs/297),(this.Y*32+50)*(hs/297),this.Image.width/6*(hs/297),this.Image.height/3*(hs/297))&&mousedown&&index !== currentpixpet){       
+    currentpixpet = index;    
+    selectloop = 0;
+    selectanimation = 0;  
+    mousedown = false;
+    }
    
     if(currentpixpet == index){
-
-       //okay.innerHTML = this.Inventory;    
-        
+  
     ctx.drawImage(gifload[currentpixpet+5],this.Speciescrop[currentpixpet*2],this.Speciescrop[currentpixpet*2+1],50*2,50*2,250*(hs/297),6*(hs/297),40*(hs/297),40*(hs/297));
    
     collision(mousex,mousey,0,0,190*(hs/297),15*(hs/297),gifload[10].width/2*(hs/297),gifload[10].height/2*(hs/297)) ? ctx.globalAlpha = 1 : ctx.globalAlpha = 0.75;
@@ -74,13 +80,15 @@ pixpet.prototype.draw = function(index){
     if(currentpixpet >= pixpets.length){
     currentpixpet = 0;
     }
+      
+    selectloop = 0;
+    selectanimation = 0;
         
     mousedown = false;
         
     } 
-
-        
-    }  
+   
+    }
         
 }
 
@@ -94,11 +102,12 @@ pixpet.prototype.keyDown = function(keyCode){
  //Player can't touch other players
  if(tileload[this.Y-1]  !== undefined&&this.Direction == 1&&(tileload[this.Y-1][this.X] == 1||this.specialcheck("Wooden_Raft",[-1,0]))  )
  { 
-     
+   
      (!this.sandtile()) ? tileload[this.Y][this.X] = 0 : tileload[this.Y][this.X] = 1;
      tileload[this.Y-1][this.X] = 2;
      this.Y -= 1;
-     this.specialcheck("Pixpet_Transporter",[0,0])   
+     this.specialcheck("Pixpet_Transporter",[0,0])
+    
  }  
      
  this.Image.src = "Png Files/"+this.Species+"SmallBack.png";
@@ -198,7 +207,7 @@ pixpet.prototype.keyDown = function(keyCode){
       this.inventorydrop();
       
   } else if(this.Direction == 3&&this.X < 15&&(this.Inventory.TypeInfo[this.Inventory.Type][1].indexOf(tileload[this.Y][this.X+1]) !== -1||soundeffect("Audio Files/ItemDenied.mp3"))&&!this.Inventory.spotaken([this.Y,this.X+1])) {
-      
+        
       this.Inventory.X = this.X+1;
       this.Inventory.Y = this.Y;
       this.Inventory.Held = -1;
@@ -262,7 +271,7 @@ pixpet.prototype.specialcheck = function(checktype,check){
     for(let transport = 0;transport < items.length;transport++){
     
     //location swapper
-    if(items[transport].Type == "Pixpet_Transporter"&&items[transport] !== items[invenitem]&&items[transport].Held ==-1&&items[transport].Frame == 1){
+    if(items[transport].Type == "Pixpet_Transporter"&&items[transport] !== items[invenitem]&&items[transport].Held ==     -1&&items[transport].Frame == 1){
       
       for(let pixpettransport = 0;pixpettransport < pixpets.length;pixpettransport++){
     
@@ -275,7 +284,7 @@ pixpet.prototype.specialcheck = function(checktype,check){
       return;
       }
        
-      }        
+      }     
 
     }
 
