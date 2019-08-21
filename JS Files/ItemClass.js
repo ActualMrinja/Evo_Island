@@ -35,8 +35,6 @@ this.BootTrail.src = "Png Files/PixeldustTrails.png";
 //Used in Sunobrope
 this.Connected = false;
 
-//Ropes hide if there is an item
-
 }
 
 //For items that have a y-axis boost when being used
@@ -168,7 +166,7 @@ item.prototype.spotaken = function(check){
  
   if(this.Type == "Ancient_Tectonic_Clock"){
   pixpets[this.Held].Inventory = -1;
-  seconds *= 0.25;
+  seconds *= 0.75;
   items.splice(items.indexOf(this),1);
   clockanimation = 2;
   return;
@@ -196,15 +194,23 @@ item.prototype.spotaken = function(check){
    if((this !== items[itemc]&&check[1] == items[itemc].X&&check[0] == items[itemc].Y)&&items[itemc].Held == -1&&(!(items[itemc].Type == "Lily_Pad"&&items[itemc].LilyPadTile == false)||this.Type == "Ball_Capsule")){
        
    //Capsules use this to their advantage
-   if(this.Checking == -1&&this.Type == "Ball_Capsule"&&items[itemc].LilyPadTile == false&&!(items[itemc].Type !== "Sunobrope"&&items[itemc].Connected)){
+   if(this.Checking == -1&&this.Type == "Ball_Capsule"&&items[itemc].LilyPadTile == false&&items[itemc].Type !== "Sunobrope_Rope"){
        
    this.Checking = currentpixpet;
+   
    pixpets[currentpixpet].Inventory = items[itemc];
    pixpets[currentpixpet].CapsuleItem = this;
    items[itemc].Held = currentpixpet;
    this.Held = currentpixpet;
    items[itemc].sensecheck();
    soundeffect("Audio Files/ItemPickup.mp3");
+       
+   if(items[itemc].Type == "Sunobrope"&&items[itemc].Connected&&items[itemc].ropebreak()){
+   items[itemc].Frame = 0;
+   items[itemc].Connected.Connected = false;
+   items[itemc].Connected = false; 
+   }   
+       
    }
     
    if(items[itemc].LilyPadTile == false){
