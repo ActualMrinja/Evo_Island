@@ -152,6 +152,15 @@ textmaker("YOUR TIME IS UP",140,125,25);
       pixpets = [];
       pixpets.push(new pixpet("Drax",1,3));
       items = [];
+      
+      if(timerbonus == 1){
+     timer = false;
+     } else if(timerbonus == 1.25) {
+     timer = 120;
+     } else {
+     timer = 60;
+     }
+        
     }
     textmaker("TRY AGAIN",(277-gifload[21].width/6),173,12);
         
