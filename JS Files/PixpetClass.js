@@ -323,11 +323,9 @@ pixpet.prototype.specialcheck = function(checktype,check){
   }
   //Main Transport boolean
   }
-      
-      
+           
  //Main Special Item loop   
  }
     
-  return false;
-    
+  return false;   
 }
