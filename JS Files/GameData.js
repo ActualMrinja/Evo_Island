@@ -24,9 +24,14 @@ ctx = canvas.getContext("2d");
 20 is Sound Effect Off
 21 is Full Button
 22 is Player Selected
+23 is Western Dragon Evobar
+24 is Wolfdog Evobar
+25 is Bear Evobar
+26 is Tropical Bird Evobar
+27 is Feline Evobar
 **/
 
-gifname = ["Gif Files/Header.gif","Gif Files/FullScreenButton.gif","Gif Files/SmallScreenButton.gif","Gif Files/OceanTile.gif","Gif Files/SandTile.gif","Gif Files/Drax.gif","Gif Files/Canisqua.gif","Gif Files/Unicubb.gif","Gif Files/Troffinch.gif","Gif Files/Feliphene.gif","Gif Files/SwitchButton.gif","Gif Files/UpButton.gif","Gif Files/RightButton.gif","Gif Files/DownButton.gif","Gif Files/LeftButton.gif","Gif Files/InventoryButton.gif","Gif Files/InventoryBox.gif","Gif Files/MusicOnButton.gif","Gif Files/MusicOffButton.gif","Gif Files/SoundEffectOnButton.gif","Gif Files/SoundEffectOffButton.gif","Gif Files/FullButton.gif","Gif Files/PlayerSelected.gif"];
+gifname = ["Gif Files/Header.gif","Gif Files/FullScreenButton.gif","Gif Files/SmallScreenButton.gif","Gif Files/OceanTile.gif","Gif Files/SandTile.gif","Gif Files/Drax.gif","Gif Files/Canisqua.gif","Gif Files/Unicubb.gif","Gif Files/Troffinch.gif","Gif Files/Feliphene.gif","Gif Files/SwitchButton.gif","Gif Files/UpButton.gif","Gif Files/RightButton.gif","Gif Files/DownButton.gif","Gif Files/LeftButton.gif","Gif Files/InventoryButton.gif","Gif Files/InventoryBox.gif","Gif Files/MusicOnButton.gif","Gif Files/MusicOffButton.gif","Gif Files/SoundEffectOnButton.gif","Gif Files/SoundEffectOffButton.gif","Gif Files/FullButton.gif","Gif Files/PlayerSelected.gif","Gif Files/WesternDragonEvobar.gif","Gif Files/WolfdogEvobar.gif","Gif Files/BearEvobar.gif","Gif Files/TropicalBirdEvobar.gif","Gif Files/FelineEvobar.gif"];
 gifload = [];
 
 preloadname = ["Png Files/Wooden_Raft.png","Png Files/Sunobrope.png","Png Files/Sunobrope_Rope.png","Png Files/Pixpet_Transporter.png","Png Files/PixeldustTrails.png","Png Files/Pixeldust_Boots.png","Png Files/Lily_Pad.png","Png Files/Ancient_Tectonic_Clock.png","Png Files/Great_Oceanic_Clock.png","Png Files/Evolution_Fruit_Thermos_Bottle.png","Png Files/Ball_Capsule.png","Png Files/Wooden_Raft.png","Png Files/Wooden_Chest.png","Png Files/UnicubbSmallRight.png","Png Files/UnicubbSmallLeft.png","Png Files/UnicubbSmallFront.png","Png Files/UnicubbSmallBack.png","Png Files/TroffinchSmallRight.png","Png Files/TroffinchSmallLeft.png","Png Files/TroffinchSmallFront.png","Png Files/TroffinchSmallBack.png","Png Files/DraxSmallRight.png","Png Files/DraxSmallLeft.png","Png Files/DraxSmallFront.png","Png Files/DraxSmallBack.png","Png Files/FelipheneSmallRight.png","Png Files/FelipheneSmallLeft.png","Png Files/FelipheneSmallFront.png","Png Files/FelipheneSmallBack.png","Png Files/CanisquaSmallRight.png","Png Files/CanisquaSmallLeft.png","Png Files/CanisquaSmallFront.png","Png Files/CanisquaSmallBack.png"];
@@ -543,6 +548,10 @@ if(completion <= 0&&!endgame){
 scoreanimation = seconds;
 endgame = true;
 difficultypage = false;
+    
+//All 5 pixpets get an evolution animation when a game is won
+for(let quickani = 0;quickani < 5;quickani++){ pixpets[quickani].EvolutionAni = 20-quickani*2; }
+    
 music.pause();
 soundeffect("Audio Files/EndJingle.mp3");
 }
