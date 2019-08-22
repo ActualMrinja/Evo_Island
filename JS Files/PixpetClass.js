@@ -8,10 +8,13 @@ this.X = x;
 this.Y = y;
 this.Species = species;
 this.Speciescrop = [0,0,15,0,110,20,110,0,150,25];
+this.Evolutions = ["Altudrax","Luputrix","Ursufuzz","Parrogrine","Kyagrowl"];
     
 this.Inventory = -1;
 this.CapsuleItem = -1;
 this.BootWalk = false;
+
+this.EvolutionAni = 0;
 }
 
 //inventory drop code to reduce redundant coding
@@ -54,12 +57,12 @@ pixpet.prototype.draw = function(index){
     
    ctx.globalAlpha = 1; 
     
-    ctx.drawImage(this.Image,(this.Image.width/2)*Math.floor(this.Frame)+0.25,0,this.Image.width/2-0.5,this.Image.height,(this.X*32+10)*(hs/297),(this.Y*32+50)*(hs/297),this.Image.width/6*(hs/297),this.Image.height/3*(hs/297));
+    ctx.drawImage(this.Image,(this.Image.width/2)*Math.floor(this.Frame)+0.25,0,this.Image.width/2-0.5,this.Image.height,(this.X*32+10)*(hs/297),(this.Y*32+63-this.Image.height/6)*(hs/297),this.Image.width/6*(hs/297),this.Image.height/3*(hs/297));
     this.Frame += 1/30;
     if(this.Frame > 2){ this.Frame = 0 }
     
     //Pixpets can also be selected through clicking them, their mugshot will immediately load when clicked because of this
-    if(collision(mousex,mousey,0,0,(this.X*32+10)*(hs/297),(this.Y*32+50)*(hs/297),this.Image.width/6*(hs/297),this.Image.height/3*(hs/297))&&mousedown&&index !== currentpixpet){       
+    if(collision(mousex,mousey,0,0,(this.X*32+10)*(hs/297),(this.Y*32+50)*(hs/297),this.Image.width/6*(hs/297),this.Image.height/3*(hs/297))&&mousedown&&index !== currentpixpet&&!endgame){       
     currentpixpet = index;    
     selectloop = 0;
     selectanimation = 0;  
@@ -74,7 +77,7 @@ pixpet.prototype.draw = function(index){
     ctx.drawImage(gifload[10],190*(hs/297),15*(hs/297),gifload[10].width/2*(hs/297),gifload[10].height/2*(hs/297));
     textmaker("SWITCH",195,28,10);
     
-    if(collision(mousex,mousey,0,0,190*(hs/297),15*(hs/297),gifload[10].width/2*(hs/297),gifload[10].height/2*(hs/297))&&mousedown){
+    if(collision(mousex,mousey,0,0,190*(hs/297),15*(hs/297),gifload[10].width/2*(hs/297),gifload[10].height/2*(hs/297))&&mousedown&&!endgame){
         
     currentpixpet += 1;  
     if(currentpixpet >= pixpets.length){
@@ -88,6 +91,34 @@ pixpet.prototype.draw = function(index){
         
     } 
    
+    }
+    
+  
+    //Evolution Animation
+    if(this.EvolutionAni > 0) {
+    
+    if(this.EvolutionAni % 4 == 0){
+    this.Image.src = "Png Files/"+this.Species+"SmallBack.png";
+    this.Direction = 1;
+    } else if(this.EvolutionAni % 3 == 0){
+    this.Image.src = "Png Files/"+this.Species+"SmallRight.png";
+    this.Direction = 3;
+    } else if(this.EvolutionAni % 2 == 0){
+    this.Image.src = "Png Files/"+this.Species+"SmallFront.png";
+    this.Direction = 4;
+    } else if(this.EvolutionAni % 1 == 0){
+    this.Image.src = "Png Files/"+((this.EvolutionAni == 1) ? this.Evolutions[index] : this.Species)+"SmallLeft.png";
+    this.Direction = 2;
+    }
+    
+    //Spinning evobar
+    ctx.save();
+    ctx.translate((this.X*32+30-gifload[index+23].width/6)*(hs/297),(this.Y*32+(50-this.EvolutionAni))*(hs/297));
+    ctx.rotate(this.EvolutionAni*18 * Math.PI / 180);
+    ctx.drawImage(gifload[index+23],-gifload[index+23].width/6*(hs/297),-gifload[index+23].height/6*(hs/297),gifload[index+23].width/3*(hs/297),gifload[index+23].height/3*(hs/297));
+    ctx.restore();
+        
+    this.EvolutionAni -= 0.5;
     }
         
 }
