@@ -452,8 +452,8 @@ mousedown = false;
   
      
 
-ws = canvas.width;
-hs = canvas.height;
+ws = 528;
+hs = 297;
 canvas.width = 528;
 canvas.height = 297;
 fullscreen.src = "Gif Files/FullScreenButton.gif";
