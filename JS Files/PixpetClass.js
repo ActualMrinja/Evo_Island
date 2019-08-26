@@ -371,7 +371,7 @@ pixpet.prototype.keyDown = function(keyCode){
   //pixpet placing
   if(this.Inventory.Species !== undefined){
       
-     if(tileload[this.Y+1][this.X] == 1&&this.Direction == 4) {
+     if(this.Y < 6&&tileload[this.Y+1][this.X] == 1&&this.Direction == 4) {
      this.Inventory.Held = -1;
      this.Inventory.X = this.X;
      this.Inventory.Y = this.Y+1;
@@ -380,7 +380,7 @@ pixpet.prototype.keyDown = function(keyCode){
      if(this.Gigantisize) { this.Gigantisize = false }       
      tileload[this.Y+1][this.X] = 2;
      soundeffect("Audio Files/ItemDrop.mp3");  
-     } else if(tileload[this.Y-1][this.X] == 1&&this.Direction == 1) {
+     } else if(this.Y > 0&&tileload[this.Y-1][this.X] == 1&&this.Direction == 1) {
      this.Inventory.Held = -1;
      this.Inventory.X = this.X;
      this.Inventory.Y = this.Y-1;
@@ -390,7 +390,7 @@ pixpet.prototype.keyDown = function(keyCode){
      soundeffect("Audio Files/ItemDrop.mp3");  
      if(this.Gigantisize) { this.Gigantisize = false} 
          
-     } else if(tileload[this.Y][this.X+1] == 1&&this.Direction == 3) {
+     } else if(this.X < 15&&tileload[this.Y][this.X+1] == 1&&this.Direction == 3) {
      this.Inventory.Held = -1;
      this.Inventory.X = this.X+1;
      this.Inventory.Y = this.Y;
@@ -399,7 +399,7 @@ pixpet.prototype.keyDown = function(keyCode){
      tileload[this.Y][this.X+1] = 2;
      soundeffect("Audio Files/ItemDrop.mp3");   
      if(this.Gigantisize) { this.Gigantisize = false} 
-     } else if(tileload[this.Y][this.X-1] == 1&&this.Direction == 2) {
+     } else if(this.X > 0&&tileload[this.Y][this.X-1] == 1&&this.Direction == 2) {
      this.Inventory.Held = -1;
      this.Inventory.X = this.X-1;
      this.Inventory.Y = this.Y;
