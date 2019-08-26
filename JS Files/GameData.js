@@ -404,12 +404,12 @@ if(!endgame){
 }
 
 textmaker = function(text,x,y,size){
-ctx.font = "600 "+size*(hs/297)+"px SG12";
+ctx.font = "900 "+size*(hs/297)+"px SG12";
 ctx.fillStyle = "white";
-ctx.fillText(text,x*(hs/297),y*(hs/297),ctx.measureText(text).width);  
+ctx.fillText(text,x*(hs/297),y*(hs/297));  
 ctx.strokeStyle = "black";
-ctx.lineWidth = (size/20)*(hs/297);
-ctx.strokeText(text,x*(hs/297),y*(hs/297),ctx.measureText(text).width); 
+ctx.lineWidth = (size/25)*(hs/297);
+ctx.strokeText(text,x*(hs/297),y*(hs/297)); 
 }
 
 fullscreencode = function(){
