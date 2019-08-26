@@ -465,7 +465,7 @@ mousedown = false;
 maingame = function(){
     
 //if made small screen through tab hiding it will be become small screen automatically
-if((!document.fullscreenElement&&!document.mozFullScreen&&!document.webkitIsFullScreen&&!document.msFullscreenElement)){  
+if((!document.fullscreenEnabled&&!document.mozFullScreenEnabled&&!document.webkitFullScreenEnabled&&!document.msFullscreenEnabled)){  
  canvas.width = 528;
  canvas.height = 297;
  ws = canvas.width;
