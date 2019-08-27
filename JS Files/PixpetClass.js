@@ -7,7 +7,7 @@ this.Frame = 0;
 this.X = x;
 this.Y = y;
 this.Species = species;
-this.Speciescrop = [0,0,15,0,110,20,110,0,150,25,125,10,15,20,178,-20,5,5,175,5,15,0,0,0];
+this.Speciescrop = [0,0,15,0,110,20,110,0,150,25,125,10,15,20,178,-10,5,5,175,5,15,0,0,0];
 this.Evolutions = ["Altudrax","Luputrix","Ursufuzz","Parrogrine","Kyagrowl","Bovitaur","Velox","Velirex","Iguzzle","Iguroar","Royowl","Imprex"];
 this.Weight = [3,2,2,1,77,3,2,3,1,2,1,3];
     
