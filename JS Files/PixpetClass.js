@@ -9,7 +9,7 @@ this.Y = y;
 this.Species = species;
 this.Speciescrop = [0,0,15,0,110,20,110,0,150,25,125,10,15,20,178,-20,5,5,175,5,15,0,0,0];
 this.Evolutions = ["Altudrax","Luputrix","Ursufuzz","Parrogrine","Kyagrowl","Bovitaur","Velox","Velirex","Iguzzle","Iguroar","Royowl","Imprex"];
-this.Weight = ["Heavy","Heavy","Light","Light","Light","Heavy","Light","Heavy","Light","Heavy","Light","Heavy"];
+this.Weight = [99,88,77,13,77,265,66,353,44,88,18,110];
     
 this.Inventory = -1;
 this.BootWalk = false;
@@ -29,7 +29,7 @@ this.Held = -1;
 pixpet.prototype.information = function(index){
    
 if(currentpixpet == this.Held) {
-ctx.drawImage(gifload[(index > 4) ? index+20 : index+5],this.Speciescrop[index*2],this.Speciescrop[index*2+1],50*2,50*2,101*(hs/297),262*(hs/297),30*(hs/297),30*(hs/297));
+ctx.drawImage(gifload[(index > 4) ? index+18 : index+5],this.Speciescrop[index*2],this.Speciescrop[index*2+1],50*2,50*2,101*(hs/297),262*(hs/297),30*(hs/297),30*(hs/297));
 textmaker(this.Species,150,278,10);
 textmaker(("USE AGAIN TO UNCARRY "+this.Species+". "+this.Species+" is "+this.Weight[index]).toUpperCase(),150,288,6);   
     
@@ -142,14 +142,14 @@ pixpet.prototype.draw = function(index){
    
     if(currentpixpet == index){
   
-    ctx.drawImage(gifload[(currentpixpet > 4) ? currentpixpet+20 : currentpixpet+5],this.Speciescrop[currentpixpet*2],this.Speciescrop[currentpixpet*2+1],50*2,50*2,250*(hs/297),6*(hs/297),40*(hs/297),40*(hs/297));
+    ctx.drawImage(gifload[(currentpixpet > 4) ? currentpixpet+18 : currentpixpet+5],this.Speciescrop[currentpixpet*2],this.Speciescrop[currentpixpet*2+1],50*2,50*2,250*(hs/297),6*(hs/297),40*(hs/297),40*(hs/297));
    
     collision(mousex,mousey,0,0,190*(hs/297),15*(hs/297),gifload[10].width/2*(hs/297),gifload[10].height/2*(hs/297)) ? ctx.globalAlpha = 1 : ctx.globalAlpha = 0.85;
     ctx.drawImage(gifload[10],190*(hs/297),15*(hs/297),gifload[10].width/2*(hs/297),gifload[10].height/2*(hs/297));
     textmaker("SWITCH",216,28,10,true);
        
     ctx.globalAlpha = 1;
-    if(!endgame){ ctx.drawImage(gifload[this.Weight[index] == "Light" ? 23 : 24], 278*(hs/297),3*(hs/297),13*(hs/297),13*(hs/297)); }
+    if(!endgame){ textmaker(this.Weight[index], 280,12,10,true) }
     
     if(collision(mousex,mousey,0,0,190*(hs/297),15*(hs/297),gifload[10].width/2*(hs/297),gifload[10].height/2*(hs/297))&&mousedown&&!endgame){
         
@@ -194,9 +194,9 @@ pixpet.prototype.draw = function(index){
     
     //Spinning evobar
     ctx.save();
-    ctx.translate((this.X*32+30-gifload[index+33].width/6)*(hs/297),(this.Y*32+(50-this.EvolutionAni))*(hs/297));
+    ctx.translate((this.X*32+30-gifload[index+31].width/6)*(hs/297),(this.Y*32+(50-this.EvolutionAni))*(hs/297));
     ctx.rotate(this.EvolutionAni*18 * Math.PI / 180);
-    ctx.drawImage(gifload[index+33],-gifload[index+33].width/6*(hs/297),-gifload[index+33].height/6*(hs/297),gifload[index+33].width/3*(hs/297),gifload[index+33].height/3*(hs/297));
+    ctx.drawImage(gifload[index+31],-gifload[index+31].width/6*(hs/297),-gifload[index+31].height/6*(hs/297),gifload[index+31].width/3*(hs/297),gifload[index+31].height/3*(hs/297));
     ctx.restore();
         
     this.EvolutionAni -= 0.5;
@@ -339,7 +339,7 @@ pixpet.prototype.keyDown = function(keyCode){
        (this.X == pixpets[invenpixpet].X+1&&this.Direction == 2)||
        (this.Y == pixpets[invenpixpet].Y-1&&this.Direction == 4)||
        (this.Y == pixpets[invenpixpet].Y+1&&this.Direction == 1))&&
-       (this.X == pixpets[invenpixpet].X||this.Y == pixpets[invenpixpet].Y)&&pixpets[invenpixpet].Held == -1&&((this.Weight[currentpixpet] == "Heavy"&&this.Weight[invenpixpet] == "Light")||this.Gigantisize||soundeffect("Audio Files/ItemDenied.mp3"))){    
+       (this.X == pixpets[invenpixpet].X||this.Y == pixpets[invenpixpet].Y)&&pixpets[invenpixpet].Held == -1&&((this.Weight[currentpixpet] > this.Weight[invenpixpet])||this.Gigantisize||soundeffect("Audio Files/ItemDenied.mp3"))){    
        
    this.Inventory = pixpets[invenpixpet];
    this.Inventory.Held = currentpixpet;

@@ -24,31 +24,29 @@ ctx = canvas.getContext("2d");
 20 is Sound Effect Off
 21 is Full Button
 22 is Player Selected
-23 is Light Symbol
-24 is Heavy Symbol
-25 is Veemooth
-26 is Velibolt
-27 is Velox
-28 is Igupunk
-29 is Iguzzle
-30 is Owluck
-31 is Indigoat
-32 is Full Button Pressed
-33 is Western Dragon Evobar
-34 is Wolfdog Evobar
-35 is Bear Evobar
-36 is Tropical Bird Evobar
-37 is Feline Evobar
-38 is Bovine Evobar
-39 is JP Evobar
-40 is JP Second Evobar
-41 is Iguana Evobar
-42 is Iguana Second Evobar
-43 is Owl Evobar
-44 is Goat Evobar
+23 is Veemooth
+24 is Velibolt
+25 is Velox
+26 is Igupunk
+27 is Iguzzle
+28 is Owluck
+29 is Indigoat
+30 is Full Button Pressed
+31 is Western Dragon Evobar
+32 is Wolfdog Evobar
+33 is Bear Evobar
+34 is Tropical Bird Evobar
+35 is Feline Evobar
+36 is Bovine Evobar
+37 is JP Evobar
+38 is JP Second Evobar
+39 is Iguana Evobar
+40 is Iguana Second Evobar
+41 is Owl Evobar
+42 is Goat Evobar
 **/
 
-gifname = ["Gif Files/Header.gif","Gif Files/FullScreenButton.gif","Gif Files/SmallScreenButton.gif","Gif Files/OceanTile.gif","Gif Files/SandTile.gif","Gif Files/Drax.gif","Gif Files/Canisqua.gif","Gif Files/Unicubb.gif","Gif Files/Troffinch.gif","Gif Files/Feliphene.gif","Gif Files/SwitchButton.gif","Gif Files/UpButton.gif","Gif Files/RightButton.gif","Gif Files/DownButton.gif","Gif Files/LeftButton.gif","Gif Files/InventoryButton.gif","Gif Files/InventoryBox.gif","Gif Files/MusicOnButton.gif","Gif Files/MusicOffButton.gif","Gif Files/SoundEffectOnButton.gif","Gif Files/SoundEffectOffButton.gif","Gif Files/FullButton.gif","Gif Files/PlayerSelected.gif","Gif Files/Light.gif","Gif Files/Heavy.gif","Gif Files/Veemooth.gif","Gif Files/Velibolt.gif","Gif Files/Velox.gif","Gif Files/Igupunk.gif","Gif Files/Iguzzle.gif","Gif Files/Owluck.gif","Gif Files/Indigoat.gif","Gif Files/FullButtonPressed.gif","Gif Files/WesternDragonEvobar.gif","Gif Files/WolfdogEvobar.gif","Gif Files/BearEvobar.gif","Gif Files/TropicalBirdEvobar.gif","Gif Files/FelineEvobar.gif","Gif Files/BovineEvobar.gif","Gif Files/JPEvobar.gif","Gif Files/JPSecondEvobar.gif","Gif Files/IguanaEvobar.gif","Gif Files/IguanaSecondEvobar.gif","Gif Files/OwlEvobar.gif","Gif Files/GoatEvobar.gif"];
+gifname = ["Gif Files/Header.gif","Gif Files/FullScreenButton.gif","Gif Files/SmallScreenButton.gif","Gif Files/OceanTile.gif","Gif Files/SandTile.gif","Gif Files/Drax.gif","Gif Files/Canisqua.gif","Gif Files/Unicubb.gif","Gif Files/Troffinch.gif","Gif Files/Feliphene.gif","Gif Files/SwitchButton.gif","Gif Files/UpButton.gif","Gif Files/RightButton.gif","Gif Files/DownButton.gif","Gif Files/LeftButton.gif","Gif Files/InventoryButton.gif","Gif Files/InventoryBox.gif","Gif Files/MusicOnButton.gif","Gif Files/MusicOffButton.gif","Gif Files/SoundEffectOnButton.gif","Gif Files/SoundEffectOffButton.gif","Gif Files/FullButton.gif","Gif Files/PlayerSelected.gif","Gif Files/Veemooth.gif","Gif Files/Velibolt.gif","Gif Files/Velox.gif","Gif Files/Igupunk.gif","Gif Files/Iguzzle.gif","Gif Files/Owluck.gif","Gif Files/Indigoat.gif","Gif Files/FullButtonPressed.gif","Gif Files/WesternDragonEvobar.gif","Gif Files/WolfdogEvobar.gif","Gif Files/BearEvobar.gif","Gif Files/TropicalBirdEvobar.gif","Gif Files/FelineEvobar.gif","Gif Files/BovineEvobar.gif","Gif Files/JPEvobar.gif","Gif Files/JPSecondEvobar.gif","Gif Files/IguanaEvobar.gif","Gif Files/IguanaSecondEvobar.gif","Gif Files/OwlEvobar.gif","Gif Files/GoatEvobar.gif"];
 gifload = [];
 
 preloadname = ["Png Files/Wooden_Raft.png","Png Files/Pixpet_Transporter.png","Png Files/PixeldustTrails.png","Png Files/Pixeldust_Boots.png","Png Files/Devolution_Fruit_Thermos_Bottle.png","Png Files/UnicubbSmallRight.png","Png Files/UnicubbSmallLeft.png","Png Files/UnicubbSmallFront.png","Png Files/UnicubbSmallBack.png","Png Files/TroffinchSmallRight.png","Png Files/TroffinchSmallLeft.png","Png Files/TroffinchSmallFront.png","Png Files/TroffinchSmallBack.png","Png Files/DraxSmallRight.png","Png Files/DraxSmallLeft.png","Png Files/DraxSmallFront.png","Png Files/DraxSmallBack.png","Png Files/FelipheneSmallRight.png","Png Files/FelipheneSmallLeft.png","Png Files/FelipheneSmallFront.png","Png Files/FelipheneSmallBack.png","Png Files/CanisquaSmallRight.png","Png Files/CanisquaSmallLeft.png","Png Files/CanisquaSmallFront.png","Png Files/CanisquaSmallBack.png","Png Files/AltudraxSmallLeft.png","Png Files/LuputrixSmallLeft.png","Png Files/UrsufuzzSmallLeft.png","Png Files/ParrogrineSmallLeft.png","Png Files/KyagrowlSmallLeft.png","Png Files/PentadileSmallBack.png","Png Files/PentadileSmallFront.png","Png Files/SawrotagSmallBack.png","Png Files/SawrotagSmallFront.png","Png Files/VeemoothSmallRight.png","Png Files/VeemootSmallLeft.png","Png Files/VeemoothSmallFront.png","Png Files/VeemoothSmallBack.png","Png Files/Potion_of_Gigantism.png","Png Files/VeliboltSmallRight.png","Png Files/VeliboltSmallLeft.png","Png Files/VeliboltSmallFront.png","Png Files/VeliboltSmallBack.png","Png Files/VeloxSmallRight.png","Png Files/VeloxSmallLeft.png","Png Files/VeloxSmallFront.png","Png Files/VeloxSmallBack.png","Png Files/IgupunkSmallRight.png","Png Files/IgupunkSmallLeft.png","Png Files/IgupunkSmallFront.png","Png Files/IgupunkSmallBack.png","Png Files/IguzzleSmallRight.png","Png Files/IguzzleSmallLeft.png","Png Files/IguzzleSmallFront.png","Png Files/IguzzleSmallBack.png","Png Files/OwluckSmallRight.png","Png Files/OwluckSmallLeft.png","Png Files/OwluckSmallFront.png","Png Files/OwluckSmallBack.png","Png Files/IndigoatSmallRight.png","Png Files/IndigoatSmallLeft.png","Png Files/IndigoatSmallFront.png","Png Files/IndigoatSmallBack.png","Png Files/BovitaurSmallLeft.png","Png Files/VelirexSmallLeft.png","Png Files/IguroarSmallLeft.png","Png Files/RoyowlSmallLeft.png","Png Files/ImprexSmallLeft.png"];
@@ -162,7 +160,7 @@ textmaker("YOUR TIME IS UP",260,125,25,true);
         
     if(seconds <= 0||(timerbonus > 1&&timer == 0)){
     collision(mousex,mousey,0,0,(264-gifload[21].width/6)*(hs/297),150*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297)) ? ctx.globalAlpha = 1 : ctx.globalAlpha = 0.85;
-    ctx.drawImage(!mouseup&&ctx.globalAlpha == 1 ? gifload[32] : gifload[21],(264-gifload[21].width/6)*(hs/297),150*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297));
+    ctx.drawImage(!mouseup&&ctx.globalAlpha == 1 ? gifload[30] : gifload[21],(264-gifload[21].width/6)*(hs/297),150*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297));
     if(collision(mousex,mousey,0,0,(264-gifload[21].width/6)*(hs/297),150*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297))&&mousedown){ 
       difficultypage = true; 
       music.play();
@@ -187,7 +185,7 @@ textmaker("YOUR TIME IS UP",260,125,25,true);
    if(timer !== 0){
         
    collision(mousex,mousey,0,0,(264-gifload[21].width/6)*(hs/297),200*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297)) ? ctx.globalAlpha = 1 : ctx.globalAlpha = 0.85;
-    ctx.drawImage(!mouseup&&ctx.globalAlpha == 1 ? gifload[32] : gifload[21],(264-gifload[21].width/6)*(hs/297),200*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297));
+    ctx.drawImage(!mouseup&&ctx.globalAlpha == 1 ? gifload[30] : gifload[21],(264-gifload[21].width/6)*(hs/297),200*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297));
     if(collision(mousex,mousey,0,0,(264-gifload[21].width/6)*(hs/297),200*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297))&&mousedown){   }
     textmaker("SEND SCORE",265,223,12,true); 
     }
@@ -197,7 +195,7 @@ textmaker("YOUR TIME IS UP",260,125,25,true);
     } else {
      
       collision(mousex,mousey,0,0,(144-gifload[21].width/6)*(hs/297),140*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297)) ? ctx.globalAlpha = 1 : ctx.globalAlpha = 0.85;
-    ctx.drawImage(!mouseup&&ctx.globalAlpha == 1 ? gifload[32] : gifload[21],(144-gifload[21].width/6)*(hs/297),140*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297));
+    ctx.drawImage(!mouseup&&ctx.globalAlpha == 1 ? gifload[30] : gifload[21],(144-gifload[21].width/6)*(hs/297),140*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297));
     if(collision(mousex,mousey,0,0,(144-gifload[21].width/6)*(hs/297),140*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297))&&mousedown){ 
      
      if(timerbonus == 1){
@@ -215,14 +213,14 @@ textmaker("YOUR TIME IS UP",260,125,25,true);
     textmaker((!timer) ? "TIMER: NONE" :"TIMER: "+((timerbonus == 1.5) ? "60" : "120")+"S",145,162,10,true);    
         
      collision(mousex,mousey,0,0,(264-gifload[21].width/6)*(hs/297),140*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297)) ? ctx.globalAlpha = 1 : ctx.globalAlpha = 0.85;
-    ctx.drawImage(!mouseup&&ctx.globalAlpha == 1 ? gifload[32] : gifload[21],(264-gifload[21].width/6)*(hs/297),140*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297));
+    ctx.drawImage(!mouseup&&ctx.globalAlpha == 1 ? gifload[30] : gifload[21],(264-gifload[21].width/6)*(hs/297),140*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297));
     if(collision(mousex,mousey,0,0,(264-gifload[21].width/6)*(hs/297),140*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297))&&mousedown){ 
         (itemamount) ? itemamount = false : itemamount = true;
     }
     textmaker("TOOLS: "+((itemamount) ? "ON" : "OFF"),265,162,10,true);    
     
        collision(mousex,mousey,0,0,(384-gifload[21].width/6)*(hs/297),140*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297)) ? ctx.globalAlpha = 1 : ctx.globalAlpha = 0.85;
-    ctx.drawImage(!mouseup&&ctx.globalAlpha == 1 ? gifload[32] : gifload[21],(384-gifload[21].width/6)*(hs/297),140*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297));
+    ctx.drawImage(!mouseup&&ctx.globalAlpha == 1 ? gifload[30] : gifload[21],(384-gifload[21].width/6)*(hs/297),140*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297));
     if(collision(mousex,mousey,0,0,(384-gifload[21].width/6)*(hs/297),140*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297))&&mousedown){ 
         pixpetamount += 2;
         if(pixpetamount > 12) { pixpetamount = 8 }
@@ -230,7 +228,7 @@ textmaker("YOUR TIME IS UP",260,125,25,true);
     textmaker((pixpetamount == 8) ? "NORMAL" : (pixpetamount == 10) ? "HARD" : "EXTREME",386,162,10,true);         
         
    collision(mousex,mousey,0,0,(264-gifload[21].width/6)*(hs/297),210*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297)) ? ctx.globalAlpha = 1 : ctx.globalAlpha = 0.85;
-    ctx.drawImage(!mouseup&&ctx.globalAlpha == 1 ? gifload[32] : gifload[21],(264-gifload[21].width/6)*(hs/297),210*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297));
+    ctx.drawImage(!mouseup&&ctx.globalAlpha == 1 ? gifload[30] : gifload[21],(264-gifload[21].width/6)*(hs/297),210*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297));
     if(collision(mousex,mousey,0,0,(264-gifload[21].width/6)*(hs/297),210*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297))&&mousedown){ 
     startgame();
     }
