@@ -31,7 +31,7 @@ pixpet.prototype.information = function(index){
 if(currentpixpet == this.Held) {
 ctx.drawImage(gifload[(index > 4) ? index+18 : index+5],this.Speciescrop[index*2],this.Speciescrop[index*2+1],50*2,50*2,101*(hs/297),262*(hs/297),30*(hs/297),30*(hs/297));
 textmaker(this.Species,150,278,10);
-textmaker(("USE AGAIN TO UNCARRY "+this.Species+". "+this.Species+" is in the "+this.Weight[index]+" weight class").toUpperCase(),150,288,6);   
+textmaker(("USE AGAIN TO UNCARRY "+this.Species+". "+this.Species+" is in weight class "+this.Weight[index]+"").toUpperCase(),150,288,6);   
     
  ctx.globalAlpha = (pixpets[this.Held].RestartAni <= 0) ? 1 : ((5-pixpets[this.Held].RestartAni%5)/7)+0.375; 
  this.Image.src = "Png Files/"+this.Species+"Small"+pixpets[this.Held].Image.src.split("Small")[1];
