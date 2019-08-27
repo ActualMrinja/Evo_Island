@@ -9,7 +9,7 @@ this.Y = y;
 this.Species = species;
 this.Speciescrop = [0,0,15,0,110,20,110,0,150,25,125,10,15,20,178,-20,5,5,175,5,15,0,0,0];
 this.Evolutions = ["Altudrax","Luputrix","Ursufuzz","Parrogrine","Kyagrowl","Bovitaur","Velox","Velirex","Iguzzle","Iguroar","Royowl","Imprex"];
-this.Weight = [99,88,77,13,77,265,66,353,44,88,18,110];
+this.Weight = [3,2,2,1,77,3,2,3,1,2,1,3];
     
 this.Inventory = -1;
 this.BootWalk = false;
@@ -31,7 +31,7 @@ pixpet.prototype.information = function(index){
 if(currentpixpet == this.Held) {
 ctx.drawImage(gifload[(index > 4) ? index+18 : index+5],this.Speciescrop[index*2],this.Speciescrop[index*2+1],50*2,50*2,101*(hs/297),262*(hs/297),30*(hs/297),30*(hs/297));
 textmaker(this.Species,150,278,10);
-textmaker(("USE AGAIN TO UNCARRY "+this.Species+". "+this.Species+" is "+this.Weight[index]).toUpperCase(),150,288,6);   
+textmaker(("USE AGAIN TO UNCARRY "+this.Species+". "+this.Species+" is in the "+this.Weight[index]+" weight class").toUpperCase(),150,288,6);   
     
  ctx.globalAlpha = (pixpets[this.Held].RestartAni <= 0) ? 1 : ((5-pixpets[this.Held].RestartAni%5)/7)+0.375; 
  this.Image.src = "Png Files/"+this.Species+"Small"+pixpets[this.Held].Image.src.split("Small")[1];
