@@ -146,7 +146,7 @@ pixpet.prototype.draw = function(index){
    
     collision(mousex,mousey,0,0,190*(hs/297),15*(hs/297),gifload[10].width/2*(hs/297),gifload[10].height/2*(hs/297)) ? ctx.globalAlpha = 1 : ctx.globalAlpha = 0.85;
     ctx.drawImage(gifload[10],190*(hs/297),15*(hs/297),gifload[10].width/2*(hs/297),gifload[10].height/2*(hs/297));
-    textmaker("SWITCH",195,28,10);
+    textmaker("SWITCH",216,28,10,true);
        
     ctx.globalAlpha = 1;
     if(!endgame){ ctx.drawImage(gifload[this.Weight[index] == "Light" ? 23 : 24], 278*(hs/297),3*(hs/297),13*(hs/297),13*(hs/297)); }
@@ -194,9 +194,9 @@ pixpet.prototype.draw = function(index){
     
     //Spinning evobar
     ctx.save();
-    ctx.translate((this.X*32+30-gifload[index+32].width/6)*(hs/297),(this.Y*32+(50-this.EvolutionAni))*(hs/297));
+    ctx.translate((this.X*32+30-gifload[index+33].width/6)*(hs/297),(this.Y*32+(50-this.EvolutionAni))*(hs/297));
     ctx.rotate(this.EvolutionAni*18 * Math.PI / 180);
-    ctx.drawImage(gifload[index+32],-gifload[index+32].width/6*(hs/297),-gifload[index+32].height/6*(hs/297),gifload[index+32].width/3*(hs/297),gifload[index+32].height/3*(hs/297));
+    ctx.drawImage(gifload[index+33],-gifload[index+33].width/6*(hs/297),-gifload[index+33].height/6*(hs/297),gifload[index+33].width/3*(hs/297),gifload[index+33].height/3*(hs/297));
     ctx.restore();
         
     this.EvolutionAni -= 0.5;
@@ -245,8 +245,12 @@ pixpet.prototype.draw = function(index){
 
 //used in character movement
 pixpet.prototype.keyDown = function(keyCode){
-
+   
  //Direction must be used here as direct names will not do 
+  
+ if(keyCode == 32){
+ this.specialcheck("Pixpet_Transporter",[0,0])  
+ }
     
  if((keyCode == 38||keyCode == 87)&&!this.BootWalk){
   
@@ -257,8 +261,6 @@ pixpet.prototype.keyDown = function(keyCode){
      (!this.sandtile()) ? tileload[this.Y][this.X] = 0 : tileload[this.Y][this.X] = 1;
      tileload[this.Y-1][this.X] = 2;
      this.Y -= 1;
-     this.specialcheck("Pixpet_Transporter",[0,0])
-    
  }  
      
  this.Image.src = "Png Files/"+this.Species+"SmallBack.png";
@@ -272,7 +274,6 @@ pixpet.prototype.keyDown = function(keyCode){
      (!this.sandtile()) ? tileload[this.Y][this.X] = 0 : tileload[this.Y][this.X] = 1;
      tileload[this.Y][this.X-1] = 2;
      this.X -= 1 
-     this.specialcheck("Pixpet_Transporter",[0,0])  
  }
      
  this.Image.src = "Png Files/"+this.Species+"SmallLeft.png";
@@ -286,7 +287,6 @@ pixpet.prototype.keyDown = function(keyCode){
      (!this.sandtile()) ? tileload[this.Y][this.X] = 0 : tileload[this.Y][this.X] = 1;
      tileload[this.Y][this.X+1] = 2;
      this.X += 1 
-     this.specialcheck("Pixpet_Transporter",[0,0])  
  }
  this.Image.src = "Png Files/"+this.Species+"SmallRight.png";
  this.Direction = 3;
@@ -298,10 +298,9 @@ pixpet.prototype.keyDown = function(keyCode){
      
      (!this.sandtile()) ? tileload[this.Y][this.X] = 0 : tileload[this.Y][this.X] = 1;
      tileload[this.Y+1][this.X] = 2;
-     this.Y += 1;
-     this.specialcheck("Pixpet_Transporter",[0,0])
+     this.Y += 1;   
+ } 
      
- }    
  this.Image.src = "Png Files/"+this.Species+"SmallFront.png";
  this.Direction = 4;
      
@@ -320,7 +319,7 @@ pixpet.prototype.keyDown = function(keyCode){
        (this.X == items[invenitem].X+1&&this.Direction == 2&&!items[invenitem].sensecheck(true))||
        (this.Y == items[invenitem].Y-1&&this.Direction == 4&&!items[invenitem].sensecheck(true))||
        (this.Y == items[invenitem].Y+1&&this.Direction == 1&&!items[invenitem].sensecheck(true)))&&
-       (this.X == items[invenitem].X||this.Y == items[invenitem].Y)&&items[invenitem].Held == -1){    
+       (this.X == items[invenitem].X||this.Y == items[invenitem].Y)&&items[invenitem].Held == -1&&items[invenitem].Type !== "Pixpet_Transporter"){    
        
    this.Inventory = items[invenitem];
    items[invenitem].Held = currentpixpet;
@@ -375,7 +374,6 @@ pixpet.prototype.keyDown = function(keyCode){
      this.Inventory.Held = -1;
      this.Inventory.X = this.X;
      this.Inventory.Y = this.Y+1;
-     this.Inventory.specialcheck("Pixpet_Transporter",[0,0])
      this.Inventory = -1;  
      if(this.Gigantisize) { this.Gigantisize = false }       
      tileload[this.Y+1][this.X] = 2;
@@ -384,7 +382,6 @@ pixpet.prototype.keyDown = function(keyCode){
      this.Inventory.Held = -1;
      this.Inventory.X = this.X;
      this.Inventory.Y = this.Y-1;
-     this.Inventory.specialcheck("Pixpet_Transporter",[0,0])
      this.Inventory = -1;
      tileload[this.Y-1][this.X] = 2;
      soundeffect("Audio Files/ItemDrop.mp3");  
@@ -394,7 +391,6 @@ pixpet.prototype.keyDown = function(keyCode){
      this.Inventory.Held = -1;
      this.Inventory.X = this.X+1;
      this.Inventory.Y = this.Y;
-     this.Inventory.specialcheck("Pixpet_Transporter",[0,0])
      this.Inventory = -1;
      tileload[this.Y][this.X+1] = 2;
      soundeffect("Audio Files/ItemDrop.mp3");   
@@ -403,7 +399,6 @@ pixpet.prototype.keyDown = function(keyCode){
      this.Inventory.Held = -1;
      this.Inventory.X = this.X-1;
      this.Inventory.Y = this.Y;
-     this.Inventory.specialcheck("Pixpet_Transporter",[0,0])
      this.Inventory = -1;
      tileload[this.Y][this.X-1] = 2;
      soundeffect("Audio Files/ItemDrop.mp3");   

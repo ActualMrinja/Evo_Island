@@ -33,21 +33,22 @@ ctx = canvas.getContext("2d");
 29 is Iguzzle
 30 is Owluck
 31 is Indigoat
-32 is Western Dragon Evobar
-33 is Wolfdog Evobar
-34 is Bear Evobar
-35 is Tropical Bird Evobar
-36 is Feline Evobar
-37 is Bovine Evobar
-38 is JP Evobar
-39 is JP Second Evobar
-40 is Iguana Evobar
-41 is Iguana Second Evobar
-42 is Owl Evobar
-43 is Goat Evobar
+32 is Full Button Pressed
+33 is Western Dragon Evobar
+34 is Wolfdog Evobar
+35 is Bear Evobar
+36 is Tropical Bird Evobar
+37 is Feline Evobar
+38 is Bovine Evobar
+39 is JP Evobar
+40 is JP Second Evobar
+41 is Iguana Evobar
+42 is Iguana Second Evobar
+43 is Owl Evobar
+44 is Goat Evobar
 **/
 
-gifname = ["Gif Files/Header.gif","Gif Files/FullScreenButton.gif","Gif Files/SmallScreenButton.gif","Gif Files/OceanTile.gif","Gif Files/SandTile.gif","Gif Files/Drax.gif","Gif Files/Canisqua.gif","Gif Files/Unicubb.gif","Gif Files/Troffinch.gif","Gif Files/Feliphene.gif","Gif Files/SwitchButton.gif","Gif Files/UpButton.gif","Gif Files/RightButton.gif","Gif Files/DownButton.gif","Gif Files/LeftButton.gif","Gif Files/InventoryButton.gif","Gif Files/InventoryBox.gif","Gif Files/MusicOnButton.gif","Gif Files/MusicOffButton.gif","Gif Files/SoundEffectOnButton.gif","Gif Files/SoundEffectOffButton.gif","Gif Files/FullButton.gif","Gif Files/PlayerSelected.gif","Gif Files/Light.gif","Gif Files/Heavy.gif","Gif Files/Veemooth.gif","Gif Files/Velibolt.gif","Gif Files/Velox.gif","Gif Files/Igupunk.gif","Gif Files/Iguzzle.gif","Gif Files/Owluck.gif","Gif Files/Indigoat.gif","Gif Files/WesternDragonEvobar.gif","Gif Files/WolfdogEvobar.gif","Gif Files/BearEvobar.gif","Gif Files/TropicalBirdEvobar.gif","Gif Files/FelineEvobar.gif","Gif Files/BovineEvobar.gif","Gif Files/JPEvobar.gif","Gif Files/JPSecondEvobar.gif","Gif Files/IguanaEvobar.gif","Gif Files/IguanaSecondEvobar.gif","Gif Files/OwlEvobar.gif","Gif Files/GoatEvobar.gif"];
+gifname = ["Gif Files/Header.gif","Gif Files/FullScreenButton.gif","Gif Files/SmallScreenButton.gif","Gif Files/OceanTile.gif","Gif Files/SandTile.gif","Gif Files/Drax.gif","Gif Files/Canisqua.gif","Gif Files/Unicubb.gif","Gif Files/Troffinch.gif","Gif Files/Feliphene.gif","Gif Files/SwitchButton.gif","Gif Files/UpButton.gif","Gif Files/RightButton.gif","Gif Files/DownButton.gif","Gif Files/LeftButton.gif","Gif Files/InventoryButton.gif","Gif Files/InventoryBox.gif","Gif Files/MusicOnButton.gif","Gif Files/MusicOffButton.gif","Gif Files/SoundEffectOnButton.gif","Gif Files/SoundEffectOffButton.gif","Gif Files/FullButton.gif","Gif Files/PlayerSelected.gif","Gif Files/Light.gif","Gif Files/Heavy.gif","Gif Files/Veemooth.gif","Gif Files/Velibolt.gif","Gif Files/Velox.gif","Gif Files/Igupunk.gif","Gif Files/Iguzzle.gif","Gif Files/Owluck.gif","Gif Files/Indigoat.gif","Gif Files/FullButtonPressed.gif","Gif Files/WesternDragonEvobar.gif","Gif Files/WolfdogEvobar.gif","Gif Files/BearEvobar.gif","Gif Files/TropicalBirdEvobar.gif","Gif Files/FelineEvobar.gif","Gif Files/BovineEvobar.gif","Gif Files/JPEvobar.gif","Gif Files/JPSecondEvobar.gif","Gif Files/IguanaEvobar.gif","Gif Files/IguanaSecondEvobar.gif","Gif Files/OwlEvobar.gif","Gif Files/GoatEvobar.gif"];
 gifload = [];
 
 preloadname = ["Png Files/Wooden_Raft.png","Png Files/Pixpet_Transporter.png","Png Files/PixeldustTrails.png","Png Files/Pixeldust_Boots.png","Png Files/Devolution_Fruit_Thermos_Bottle.png","Png Files/UnicubbSmallRight.png","Png Files/UnicubbSmallLeft.png","Png Files/UnicubbSmallFront.png","Png Files/UnicubbSmallBack.png","Png Files/TroffinchSmallRight.png","Png Files/TroffinchSmallLeft.png","Png Files/TroffinchSmallFront.png","Png Files/TroffinchSmallBack.png","Png Files/DraxSmallRight.png","Png Files/DraxSmallLeft.png","Png Files/DraxSmallFront.png","Png Files/DraxSmallBack.png","Png Files/FelipheneSmallRight.png","Png Files/FelipheneSmallLeft.png","Png Files/FelipheneSmallFront.png","Png Files/FelipheneSmallBack.png","Png Files/CanisquaSmallRight.png","Png Files/CanisquaSmallLeft.png","Png Files/CanisquaSmallFront.png","Png Files/CanisquaSmallBack.png","Png Files/AltudraxSmallLeft.png","Png Files/LuputrixSmallLeft.png","Png Files/UrsufuzzSmallLeft.png","Png Files/ParrogrineSmallLeft.png","Png Files/KyagrowlSmallLeft.png","Png Files/PentadileSmallBack.png","Png Files/PentadileSmallFront.png","Png Files/SawrotagSmallBack.png","Png Files/SawrotagSmallFront.png","Png Files/VeemoothSmallRight.png","Png Files/VeemootSmallLeft.png","Png Files/VeemoothSmallFront.png","Png Files/VeemoothSmallBack.png","Png Files/Potion_of_Gigantism.png","Png Files/VeliboltSmallRight.png","Png Files/VeliboltSmallLeft.png","Png Files/VeliboltSmallFront.png","Png Files/VeliboltSmallBack.png","Png Files/VeloxSmallRight.png","Png Files/VeloxSmallLeft.png","Png Files/VeloxSmallFront.png","Png Files/VeloxSmallBack.png","Png Files/IgupunkSmallRight.png","Png Files/IgupunkSmallLeft.png","Png Files/IgupunkSmallFront.png","Png Files/IgupunkSmallBack.png","Png Files/IguzzleSmallRight.png","Png Files/IguzzleSmallLeft.png","Png Files/IguzzleSmallFront.png","Png Files/IguzzleSmallBack.png","Png Files/OwluckSmallRight.png","Png Files/OwluckSmallLeft.png","Png Files/OwluckSmallFront.png","Png Files/OwluckSmallBack.png","Png Files/IndigoatSmallRight.png","Png Files/IndigoatSmallLeft.png","Png Files/IndigoatSmallFront.png","Png Files/IndigoatSmallBack.png","Png Files/BovitaurSmallLeft.png","Png Files/VelirexSmallLeft.png","Png Files/IguroarSmallLeft.png","Png Files/RoyowlSmallLeft.png","Png Files/ImprexSmallLeft.png"];
@@ -86,6 +87,8 @@ hs = canvas.height;
 mousex = 0;
 mousey = 0;
 mousedown = false;
+mouseup = true;
+//^mouse up is solely used for click button animations
 
 seconds = 0;
 starttimer = false;
@@ -147,19 +150,19 @@ seconds = 0;
 ctx.globalAlpha = 1;   
     
 if(difficultypage){
-textmaker("BRING ALL PIXPETS TO EVO ISLAND",108,70,15); 
-textmaker("CHOOSE YOUR DIFFICULTY",80,100,25); 
+textmaker("BRING ALL PIXPETS TO EVO ISLAND",265,70,15,true); 
+textmaker("CHOOSE YOUR DIFFICULTY",265,100,25,true); 
 } else if(timerbonus == 1||(timerbonus > 1&&timer > 0)) {  
-textmaker("FINAL SCORE: "+Math.floor(score),264-ctx.measureText("FINAL SCORE: "+Math.floor(score)).width/(0.78*(hs/297)),125,25);
+textmaker("FINAL SCORE: "+Math.floor(score),260,125,25,true);
 } else {
-textmaker("YOUR TIME IS UP",140,125,25); 
+textmaker("YOUR TIME IS UP",260,125,25,true); 
 }
 
     if(!difficultypage){
         
     if(seconds <= 0||(timerbonus > 1&&timer == 0)){
     collision(mousex,mousey,0,0,(264-gifload[21].width/6)*(hs/297),150*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297)) ? ctx.globalAlpha = 1 : ctx.globalAlpha = 0.85;
-    ctx.drawImage(gifload[21],(264-gifload[21].width/6)*(hs/297),150*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297));
+    ctx.drawImage(!mouseup&&ctx.globalAlpha == 1 ? gifload[32] : gifload[21],(264-gifload[21].width/6)*(hs/297),150*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297));
     if(collision(mousex,mousey,0,0,(264-gifload[21].width/6)*(hs/297),150*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297))&&mousedown){ 
       difficultypage = true; 
       music.play();
@@ -177,16 +180,16 @@ textmaker("YOUR TIME IS UP",140,125,25);
      }
         
     }
-    textmaker("TRY AGAIN",(277-gifload[21].width/6),173,12);
+    textmaker("TRY AGAIN",265,173,12,true);
         
       
    //Score sending goes here, can't send if timer is up
    if(timer !== 0){
         
    collision(mousex,mousey,0,0,(264-gifload[21].width/6)*(hs/297),200*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297)) ? ctx.globalAlpha = 1 : ctx.globalAlpha = 0.85;
-    ctx.drawImage(gifload[21],(264-gifload[21].width/6)*(hs/297),200*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297));
+    ctx.drawImage(!mouseup&&ctx.globalAlpha == 1 ? gifload[32] : gifload[21],(264-gifload[21].width/6)*(hs/297),200*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297));
     if(collision(mousex,mousey,0,0,(264-gifload[21].width/6)*(hs/297),200*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297))&&mousedown){   }
-    textmaker("SEND SCORE",(273-gifload[21].width/6),223,12); 
+    textmaker("SEND SCORE",265,223,12,true); 
     }
         
     }
@@ -194,7 +197,7 @@ textmaker("YOUR TIME IS UP",140,125,25);
     } else {
      
       collision(mousex,mousey,0,0,(144-gifload[21].width/6)*(hs/297),140*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297)) ? ctx.globalAlpha = 1 : ctx.globalAlpha = 0.85;
-    ctx.drawImage(gifload[21],(144-gifload[21].width/6)*(hs/297),140*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297));
+    ctx.drawImage(!mouseup&&ctx.globalAlpha == 1 ? gifload[32] : gifload[21],(144-gifload[21].width/6)*(hs/297),140*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297));
     if(collision(mousex,mousey,0,0,(144-gifload[21].width/6)*(hs/297),140*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297))&&mousedown){ 
      
      if(timerbonus == 1){
@@ -209,29 +212,29 @@ textmaker("YOUR TIME IS UP",140,125,25);
      }
         
     }
-    textmaker((!timer) ? "TIMER: NONE" :"TIMER: "+((timerbonus == 1.5) ? "60" : "120")+"S",109,162,10);    
+    textmaker((!timer) ? "TIMER: NONE" :"TIMER: "+((timerbonus == 1.5) ? "60" : "120")+"S",145,162,10,true);    
         
      collision(mousex,mousey,0,0,(264-gifload[21].width/6)*(hs/297),140*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297)) ? ctx.globalAlpha = 1 : ctx.globalAlpha = 0.85;
-    ctx.drawImage(gifload[21],(264-gifload[21].width/6)*(hs/297),140*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297));
+    ctx.drawImage(!mouseup&&ctx.globalAlpha == 1 ? gifload[32] : gifload[21],(264-gifload[21].width/6)*(hs/297),140*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297));
     if(collision(mousex,mousey,0,0,(264-gifload[21].width/6)*(hs/297),140*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297))&&mousedown){ 
         (itemamount) ? itemamount = false : itemamount = true;
     }
-    textmaker("TOOLS: "+((itemamount) ? "ON" : "OFF"),235,162,10);    
+    textmaker("TOOLS: "+((itemamount) ? "ON" : "OFF"),265,162,10,true);    
     
        collision(mousex,mousey,0,0,(384-gifload[21].width/6)*(hs/297),140*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297)) ? ctx.globalAlpha = 1 : ctx.globalAlpha = 0.85;
-    ctx.drawImage(gifload[21],(384-gifload[21].width/6)*(hs/297),140*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297));
+    ctx.drawImage(!mouseup&&ctx.globalAlpha == 1 ? gifload[32] : gifload[21],(384-gifload[21].width/6)*(hs/297),140*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297));
     if(collision(mousex,mousey,0,0,(384-gifload[21].width/6)*(hs/297),140*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297))&&mousedown){ 
         pixpetamount += 2;
         if(pixpetamount > 12) { pixpetamount = 8 }
     }
-    textmaker((pixpetamount == 8) ? "NORMAL" : (pixpetamount == 10) ? "HARD" : "EXTREME",(pixpetamount == 8) ? 364 : (pixpetamount == 10) ? 372 : 360,162,10);         
+    textmaker((pixpetamount == 8) ? "NORMAL" : (pixpetamount == 10) ? "HARD" : "EXTREME",386,162,10,true);         
         
    collision(mousex,mousey,0,0,(264-gifload[21].width/6)*(hs/297),210*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297)) ? ctx.globalAlpha = 1 : ctx.globalAlpha = 0.85;
-    ctx.drawImage(gifload[21],(264-gifload[21].width/6)*(hs/297),210*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297));
+    ctx.drawImage(!mouseup&&ctx.globalAlpha == 1 ? gifload[32] : gifload[21],(264-gifload[21].width/6)*(hs/297),210*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297));
     if(collision(mousex,mousey,0,0,(264-gifload[21].width/6)*(hs/297),210*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297))&&mousedown){ 
     startgame();
     }
-    textmaker("PLAY",242,235,15);       
+    textmaker("PLAY",265,235,15,true);       
         
     }
    
@@ -246,6 +249,7 @@ mousemake = function(event, mousedown) {
 
 mousedowncheck = function(){
  mousedown = true;
+ mouseup = false;
 
  //music does not play unti clicked in some browsers
  if(music.volume == 0.7&&!(endgame&&!difficultypage)) { music.play() }
@@ -403,13 +407,24 @@ if(!endgame){
     
 }
 
-textmaker = function(text,x,y,size){
+textmaker = function(text,x,y,size,sizeswitch=false){
+    
+if(sizeswitch){
 ctx.font = "900 "+size*(hs/297)+"px SG12";
 ctx.fillStyle = "white";
-ctx.fillText(text,x*(hs/297),y*(hs/297));  
+ctx.fillText(text,x*(hs/297)-(ctx.measureText(text).width*0.9/2),y*(hs/297),ctx.measureText(text).width*0.9);  
 ctx.strokeStyle = "black";
 ctx.lineWidth = (size/25)*(hs/297);
-ctx.strokeText(text,x*(hs/297),y*(hs/297)); 
+ctx.strokeText(text,x*(hs/297)-(ctx.measureText(text).width*0.9/2),y*(hs/297),ctx.measureText(text).width*0.9); 
+} else {
+ctx.font = "900 "+size*(hs/297)+"px SG12";
+ctx.fillStyle = "white";
+ctx.fillText(text,x*(hs/297),y*(hs/297),ctx.measureText(text).width*0.9*(hs/297));  
+ctx.strokeStyle = "black";
+ctx.lineWidth = (size/25)*(hs/297);
+ctx.strokeText(text,x*(hs/297),y*(hs/297),ctx.measureText(text).width*0.9*(hs/297)); 
+}
+    
 }
 
 fullscreencode = function(){
@@ -668,6 +683,7 @@ seconds = 2500;
 canvas.addEventListener("keydown", keydowncode);
 canvas.addEventListener("mousemove", mousemake);
 canvas.addEventListener("mousedown", mousedowncheck);
+canvas.addEventListener("mouseup", mouseupcheck => mouseup = true);
 
 //game animation
 setInterval(maingame, 1000 / 30);
