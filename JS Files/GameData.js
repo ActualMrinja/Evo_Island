@@ -73,7 +73,7 @@ currentpixpet = 0;
 selectanimation = 0;
 selectloop = 0;
 pixpets = [];
-pixpets.push(new pixpet("Drax",3,5));
+pixpets.push(new pixpet("Drax",2,4));
 
 /**Lily Pads should always be the first/second item coding wise and visually because they are also tiles**/
 items = [];
@@ -166,7 +166,7 @@ textmaker("YOUR TIME IS UP",260,125,25,true);
       music.play();
       currentpixpet = 0;
       pixpets = [];
-      pixpets.push(new pixpet("Drax",3,5));
+      pixpets.push(new pixpet("Drax",2,4));
       items = [];
       
       if(timerbonus == 1){
@@ -281,23 +281,54 @@ score = 0;
 starttimer = false;
 pixpets = [];
 items = [];
-pixpets.push(new pixpet("Drax",0,0));
-pixpets.push(new pixpet("Canisqua",0,1));
-pixpets.push(new pixpet("Unicubb",0,2));
-pixpets.push(new pixpet("Troffinch",0,3));
-pixpets.push(new pixpet("Feliphene",0,4));
-pixpets.push(new pixpet("Veemooth",0,5));
-pixpets.push(new pixpet("Velibolt",0,6));
-pixpets.push(new pixpet("Velox",2,3));
+    
+tilerandom = [[0,0],[0,1],[0,2],[0,3],[0,4],[0,5],[0,6],[2,3]]
+ 
+if(pixpetamount >= 10) { tilerandom.push([2,1],[2,5]); } 
+if(pixpetamount >= 12) { tilerandom.push([2,0],[2,6]); }  
+    
+tilepicked = Math.floor(Math.random()*tilerandom.length);
+
+pixpets.push(new pixpet("Drax",tilerandom[tilepicked][0],tilerandom[tilepicked][1]));
+tilerandom.splice(tilepicked,1);
+tilepicked = Math.floor(Math.random()*tilerandom.length);
+pixpets.push(new pixpet("Canisqua",tilerandom[tilepicked][0],tilerandom[tilepicked][1]));
+tilerandom.splice(tilepicked,1);
+tilepicked = Math.floor(Math.random()*tilerandom.length);
+pixpets.push(new pixpet("Unicubb",tilerandom[tilepicked][0],tilerandom[tilepicked][1]));
+tilerandom.splice(tilepicked,1);
+tilepicked = Math.floor(Math.random()*tilerandom.length);
+pixpets.push(new pixpet("Troffinch",tilerandom[tilepicked][0],tilerandom[tilepicked][1]));
+tilerandom.splice(tilepicked,1);
+tilepicked = Math.floor(Math.random()*tilerandom.length);
+pixpets.push(new pixpet("Feliphene",tilerandom[tilepicked][0],tilerandom[tilepicked][1]));
+tilerandom.splice(tilepicked,1);
+tilepicked = Math.floor(Math.random()*tilerandom.length);
+pixpets.push(new pixpet("Veemooth",tilerandom[tilepicked][0],tilerandom[tilepicked][1]));
+tilerandom.splice(tilepicked,1);
+tilepicked = Math.floor(Math.random()*tilerandom.length);
+pixpets.push(new pixpet("Velibolt",tilerandom[tilepicked][0],tilerandom[tilepicked][1]));
+tilerandom.splice(tilepicked,1);
+tilepicked = Math.floor(Math.random()*tilerandom.length);
+pixpets.push(new pixpet("Velox",tilerandom[tilepicked][0],tilerandom[tilepicked][1]));
+tilerandom.splice(tilepicked,1);
     
 if(pixpetamount >= 10) { 
-    pixpets.push(new pixpet("Igupunk",2,1)); 
-    pixpets.push(new pixpet("Iguzzle",2,5));
+    tilepicked = Math.floor(Math.random()*tilerandom.length);
+    pixpets.push(new pixpet("Igupunk",tilerandom[tilepicked][0],tilerandom[tilepicked][1]));
+    tilerandom.splice(tilepicked,1);
+    tilepicked = Math.floor(Math.random()*tilerandom.length);
+    pixpets.push(new pixpet("Iguzzle",tilerandom[tilepicked][0],tilerandom[tilepicked][1]));
+    tilerandom.splice(tilepicked,1);
 }
     
 if(pixpetamount == 12) {
-    pixpets.push(new pixpet("Owluck",2,0)); 
-    pixpets.push(new pixpet("Indigoat",2,6));
+    tilepicked = Math.floor(Math.random()*tilerandom.length);
+    pixpets.push(new pixpet("Owluck",tilerandom[tilepicked][0],tilerandom[tilepicked][1])); 
+    tilerandom.splice(tilepicked,1);
+    tilepicked = Math.floor(Math.random()*tilerandom.length);
+    pixpets.push(new pixpet("Indigoat",tilerandom[tilepicked][0],tilerandom[tilepicked][1]));
+    tilerandom.splice(tilepicked,1);
 }
    
 pixpets.push(new pixpet("Pentadile",7,6));
