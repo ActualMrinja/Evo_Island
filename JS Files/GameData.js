@@ -404,9 +404,9 @@ if(sizeswitch){
 ctx.font = "900 "+size*(hs/297)+"px SG12";
 ctx.strokeStyle = "black";
 ctx.lineWidth = (size/25)*4*(hs/297);
-ctx.strokeText(text,x*(hs/297)-(ctx.measureText(text).width/2),y*(hs/297),ctx.measureText(text).width); 
+ctx.strokeText(text,x*(hs/297)-(ctx.measureText(text).width/1.95),y*(hs/297),ctx.measureText(text).width); 
 ctx.fillStyle = "white";
-ctx.fillText(text,x*(hs/297)-(ctx.measureText(text).width/2),y*(hs/297),ctx.measureText(text).width);  
+ctx.fillText(text,x*(hs/297)-(ctx.measureText(text).width/1.95),y*(hs/297),ctx.measureText(text).width);  
 } else {
 ctx.font = "900 "+size*(hs/297)+"px SG12";
 ctx.strokeStyle = "black";
