@@ -230,7 +230,7 @@ pixpet.prototype.draw = function(index){
         
       for(let pixpetsearch = 0;pixpetsearch < pixpetamount;pixpetsearch++){
       
-      if(this.X == pixpets[pixpetsearch].X&&this !== pixpets[pixpetsearch]&&Math.round(this.Y) == pixpets[pixpetsearch].Y) 
+      if(this.X == pixpets[pixpetsearch].X&&this !== pixpets[pixpetsearch]&&Math.round(this.Y) == pixpets[pixpetsearch].Y&&pixpets[pixpetsearch].Held == -1) 
           
         { 
         pixpets[pixpetsearch].restart((raftlocator.X == pixpets[pixpetsearch].X&&raftlocator.Y == pixpets[pixpetsearch].Y) ? true : false);
