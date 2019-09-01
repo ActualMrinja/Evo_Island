@@ -73,7 +73,7 @@ currentpixpet = 0;
 selectanimation = 0;
 selectloop = 0;
 pixpets = [];
-pixpets.push(new pixpet("Drax",2,4));
+pixpets.push(new pixpet("Drax",3,5));
 
 /**Lily Pads should always be the first/second item coding wise and visually because they are also tiles**/
 items = [];
@@ -166,7 +166,7 @@ textmaker("YOUR TIME IS UP",260,125,25,true);
       music.play();
       currentpixpet = 0;
       pixpets = [];
-      pixpets.push(new pixpet("Drax",2,4));
+      pixpets.push(new pixpet("Drax",3,5));
       items = [];
       
       if(timerbonus == 1){
