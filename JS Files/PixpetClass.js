@@ -481,7 +481,7 @@ pixpet.prototype.specialcheck = function(checktype,check){
     
   for(let invenitem = 0;invenitem < items.length;invenitem++){
      
-  if(checktype == "Wooden_Raft"&&items[invenitem].Type == checktype&&tileload[this.Y+check[0]][this.X+check[1]] == 0&&this.X == items[invenitem].X&&this.Y == items[invenitem].Y&&items[invenitem].Held == -1){
+  if(checktype == "Wooden_Raft"&&items[invenitem].Type == checktype&&tileload[this.Y+check[0]][this.X+check[1]] == 0&&this.X == items[invenitem].X&&this.Y == items[invenitem].Y&&items[invenitem].Held == -1&&(this.Inventory == -1||this.Inventory.Type !== "Pixeldust_Boots")){
   items[invenitem].Y += check[0];
   items[invenitem].X += check[1];
   items[invenitem].sensecheck();
