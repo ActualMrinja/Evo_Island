@@ -627,7 +627,7 @@ if(!endgame){
     //left button drawer
     collision(mousex,mousey,0,0,30*(hs/297),263*(hs/297),36/3*(hs/297),64/3*(hs/297)) ? ctx.globalAlpha = 1 : ctx.globalAlpha = 0.85; 
     ctx.drawImage(gifload[14],30*(hs/297),263*(hs/297),36/3*(hs/297),64/3*(hs/297));
-    if(collision(mousex,mousey,0,0,30*(hs/297),263*(hs/297),36/3*(hs/297),64/3*(hs/297))&&mousedown){ keycdowncode(37) }
+    if(collision(mousex,mousey,0,0,30*(hs/297),263*(hs/297),36/3*(hs/297),64/3*(hs/297))&&mousedown){ keydowncode(37) }
     //right button drawer
     collision(mousex,mousey,0,0,69*(hs/297),263*(hs/297),36/3*(hs/297),64/3*(hs/297)) ? ctx.globalAlpha = 1 : ctx.globalAlpha = 0.85; 
     ctx.drawImage(gifload[12],69*(hs/297),263*(hs/297),36/3*(hs/297),64/3*(hs/297));
