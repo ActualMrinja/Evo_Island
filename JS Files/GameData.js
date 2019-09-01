@@ -283,52 +283,16 @@ pixpets = [];
 items = [];
     
 tilerandom = [[0,0],[0,1],[0,2],[0,3],[0,4],[0,5],[0,6],[2,3]]
- 
+pixpetnames = ["Drax","Canisqua","Unicubb","Troffinch","Feliphene","Veemooth","Velibolt","Velox","Igupunk","Iguzzle","Owluck","Indigoat"];    
+    
 if(pixpetamount >= 10) { tilerandom.push([2,1],[2,5]); } 
 if(pixpetamount >= 12) { tilerandom.push([2,0],[2,6]); }  
-    
+      
+for(let pixpetmake = 0;pixpetmake < pixpetamount;pixpetmake++){   
 tilepicked = Math.floor(Math.random()*tilerandom.length);
-
-pixpets.push(new pixpet("Drax",tilerandom[tilepicked][0],tilerandom[tilepicked][1]));
+pixpets.push(new pixpet(pixpetnames[0],tilerandom[tilepicked][0],tilerandom[tilepicked][1]));
 tilerandom.splice(tilepicked,1);
-tilepicked = Math.floor(Math.random()*tilerandom.length);
-pixpets.push(new pixpet("Canisqua",tilerandom[tilepicked][0],tilerandom[tilepicked][1]));
-tilerandom.splice(tilepicked,1);
-tilepicked = Math.floor(Math.random()*tilerandom.length);
-pixpets.push(new pixpet("Unicubb",tilerandom[tilepicked][0],tilerandom[tilepicked][1]));
-tilerandom.splice(tilepicked,1);
-tilepicked = Math.floor(Math.random()*tilerandom.length);
-pixpets.push(new pixpet("Troffinch",tilerandom[tilepicked][0],tilerandom[tilepicked][1]));
-tilerandom.splice(tilepicked,1);
-tilepicked = Math.floor(Math.random()*tilerandom.length);
-pixpets.push(new pixpet("Feliphene",tilerandom[tilepicked][0],tilerandom[tilepicked][1]));
-tilerandom.splice(tilepicked,1);
-tilepicked = Math.floor(Math.random()*tilerandom.length);
-pixpets.push(new pixpet("Veemooth",tilerandom[tilepicked][0],tilerandom[tilepicked][1]));
-tilerandom.splice(tilepicked,1);
-tilepicked = Math.floor(Math.random()*tilerandom.length);
-pixpets.push(new pixpet("Velibolt",tilerandom[tilepicked][0],tilerandom[tilepicked][1]));
-tilerandom.splice(tilepicked,1);
-tilepicked = Math.floor(Math.random()*tilerandom.length);
-pixpets.push(new pixpet("Velox",tilerandom[tilepicked][0],tilerandom[tilepicked][1]));
-tilerandom.splice(tilepicked,1);
-    
-if(pixpetamount >= 10) { 
-    tilepicked = Math.floor(Math.random()*tilerandom.length);
-    pixpets.push(new pixpet("Igupunk",tilerandom[tilepicked][0],tilerandom[tilepicked][1]));
-    tilerandom.splice(tilepicked,1);
-    tilepicked = Math.floor(Math.random()*tilerandom.length);
-    pixpets.push(new pixpet("Iguzzle",tilerandom[tilepicked][0],tilerandom[tilepicked][1]));
-    tilerandom.splice(tilepicked,1);
-}
-    
-if(pixpetamount == 12) {
-    tilepicked = Math.floor(Math.random()*tilerandom.length);
-    pixpets.push(new pixpet("Owluck",tilerandom[tilepicked][0],tilerandom[tilepicked][1])); 
-    tilerandom.splice(tilepicked,1);
-    tilepicked = Math.floor(Math.random()*tilerandom.length);
-    pixpets.push(new pixpet("Indigoat",tilerandom[tilepicked][0],tilerandom[tilepicked][1]));
-    tilerandom.splice(tilepicked,1);
+pixpetnames.splice(0,1);   
 }
    
 pixpets.push(new pixpet("Pentadile",7,6));
