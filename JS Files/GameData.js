@@ -274,7 +274,7 @@ tileload =
       [2,1,2,1,0,0,0,0,0,0,0,0,0,1,1,1],
       [2,1,1,1,0,0,0,0,0,0,0,0,0,1,1,1],
       [2,1,(pixpetamount > 8) ? 2 : 1,1,0,0,0,0,0,0,0,0,0,1,1,1],
-      [2,1,(pixpetamount > 10) ? 2 : 1,0,0,0,0,0,0,0,0,0,0,0,1,1],
+      [2,1,(pixpetamount > 10) ? 2 : 1,0,0,0,0,0,0,0,0,0,0,1,1],
     ];    
 seconds = 0;
 score = 0;
@@ -384,8 +384,8 @@ if(!endgame){
     selectanimation = 0;
     selectloop = 0;
     
-  } else {
-   
+  } else if((pixpets[currentpixpet].Held == -1&&pixpets[currentpixpet].RestartAni <= 0)||(pixpets[currentpixpet].Held !== -1&&pixpets[pixpets[currentpixpet].Held].RestartAni <= 0)) {
+  
    //if a pixpet is stacked they 'control' their host's commands
    if(pixpets[currentpixpet].Held == -1){    
    pixpets[currentpixpet].keyDown(event == undefined ? keyhandler : event.keyCode);   
@@ -582,6 +582,11 @@ completion -= 1;
 }
     
 }
+ 
+//pixpets that stack get priority
+for(let pixpetload = 0;pixpetload < pixpets.length;pixpetload++){
+if(pixpets[pixpetload].Held !== -1) { pixpets[pixpetload].information() } 
+}
     
 if(completion <= 0&&!endgame){
 scoreanimation = seconds;
@@ -604,9 +609,6 @@ ctx.drawImage(gifload[16],100*(hs/297),260*(hs/297),100/3*(hs/297),100/3*(hs/297
 //Item and pixpet information can both be activated at the same time
 if(pixpets[currentpixpet].Inventory !== -1)
 { pixpets[currentpixpet].Inventory.information(pixpets.indexOf(pixpets[currentpixpet].Inventory)); } 
-
-if(pixpets[currentpixpet].Held !== -1)
-{ pixpets[currentpixpet].information(); }
     
 }
     
