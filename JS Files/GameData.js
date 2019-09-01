@@ -375,7 +375,7 @@ keydowncode = function(keyhandler=0){
 if(!endgame){  
     
   //switch hotkey
-  if(event.keyCode == 81||(event == undefined&&keyhandler == 81)){  
+  if((event !== undefined&&event.keyCode == 81)||(event == undefined&&keyhandler == 81)){  
     
     currentpixpet += 1;    
     if(currentpixpet >= pixpetamount){
