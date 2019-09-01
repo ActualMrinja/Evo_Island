@@ -402,18 +402,18 @@ textmaker = function(text,x,y,size,sizeswitch=false){
     
 if(sizeswitch){
 ctx.font = "900 "+size*(hs/297)+"px SG12";
-ctx.fillStyle = "white";
-ctx.fillText(text,x*(hs/297)-(ctx.measureText(text).width*0.9/2),y*(hs/297),ctx.measureText(text).width*0.9);  
 ctx.strokeStyle = "black";
-ctx.lineWidth = (size/25)*(hs/297);
-ctx.strokeText(text,x*(hs/297)-(ctx.measureText(text).width*0.9/2),y*(hs/297),ctx.measureText(text).width*0.9); 
+ctx.lineWidth = (size/25)*4*(hs/297);
+ctx.strokeText(text,x*(hs/297)-(ctx.measureText(text).width/2),y*(hs/297),ctx.measureText(text).width); 
+ctx.fillStyle = "white";
+ctx.fillText(text,x*(hs/297)-(ctx.measureText(text).width/2),y*(hs/297),ctx.measureText(text).width);  
 } else {
 ctx.font = "900 "+size*(hs/297)+"px SG12";
-ctx.fillStyle = "white";
-ctx.fillText(text,x*(hs/297),y*(hs/297),ctx.measureText(text).width*0.9*(hs/297));  
 ctx.strokeStyle = "black";
-ctx.lineWidth = (size/25)*(hs/297);
-ctx.strokeText(text,x*(hs/297),y*(hs/297),ctx.measureText(text).width*0.9*(hs/297)); 
+ctx.lineWidth = (size/25)*4*(hs/297);
+ctx.strokeText(text,x*(hs/297),y*(hs/297),ctx.measureText(text).width*(hs/297)); 
+ctx.fillStyle = "white";
+ctx.fillText(text,x*(hs/297),y*(hs/297),ctx.measureText(text).width*(hs/297));  
 }
     
 }
