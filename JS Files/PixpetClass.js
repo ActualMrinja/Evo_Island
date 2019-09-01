@@ -74,7 +74,7 @@ pixpet.prototype.restart = function(raftused){
  tileload[raftlocator.Y][raftlocator.X] = 0;
   
  if(raftused){
-  raftlocator.X = tileload[this.Y].indexOf(0,(this.Checkpoint > 0) ? this.Checkpoint-1 : this.Checkpoint);
+  raftlocator.X = tileload[this.Y].indexOf(0,(this.Checkpoint > 0) ? (this.Y == 0||this.Y == 6 ? this.Checkpoint : this.Checkpoint-1) : this.Checkpoint);
   raftlocator.Y = this.Y;
   }   
     
