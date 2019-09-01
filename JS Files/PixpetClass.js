@@ -7,10 +7,9 @@ this.Frame = 0;
 this.X = x;
 this.Y = y;
 this.Species = species;
- //3,2,2,1,2,3,2,3,1,2,1,3
 this.Speciescrop = [0,0,15,0,110,20,110,0,150,25,125,10,15,20,178,-10,5,5,175,5,15,0,0,0];
 this.Evolutions = ["Altudrax","Luputrix","Ursufuzz","Parrogrine","Kyagrowl","Bovitaur","Velox","Velirex","Iguzzle","Iguroar","Royowl","Imprex"];
-this.Weight = [1,2,3,4,5,6,7,8,9,10,11,12];
+this.Weight = [3,2,2,1,2,3,2,3,1,2,1,3];
     
 this.Inventory = -1;
 this.BootWalk = false;
@@ -27,19 +26,32 @@ this.Gigantisize = false;
 this.Held = -1;
 }
 
-pixpet.prototype.information = function(index){
+pixpet.prototype.information = function(index=false){
    
-if(currentpixpet == this.Held) {
-ctx.drawImage(gifload[(index > 4) ? index+18 : index+5],this.Speciescrop[index*2],this.Speciescrop[index*2+1],50*2,50*2,101*(hs/297),262*(hs/297),30*(hs/297),30*(hs/297));
-textmaker(this.Species,150,278,10);
-textmaker(("USE AGAIN TO UNCARRY "+this.Species+". "+this.Species+" is in weight class "+this.Weight[index]+"").toUpperCase(),150,288,6);   
+ctx.globalAlpha = (pixpets[this.Held].RestartAni <= 0) ? 1 : ((5-pixpets[this.Held].RestartAni%5)/7)+0.375; 
+   this.Image.src = "Png Files/"+this.Species+"Small"+pixpets[this.Held].Image.src.split("Small")[1];
+   this.Direction = pixpets[this.Held].Direction;
+   this.X = pixpets[this.Held].X;
+   this.Y = pixpets[this.Held].Y;
+   ctx.drawImage(this.Image,(this.Image.width/2)*Math.floor(pixpets[this.Held].Frame)+0.25,0,this.Image.width/2-0.5,this.Image.height,(this.X*32+10)*(hs/297),(this.Y*32+45-this.Image.height/6-(this.Gigantisize ? 3 : 0))*(hs/297),(this.Image.width/6+(this.Gigantisize ? 3 : 0))*(hs/297),(this.Image.height/3+(this.Gigantisize ? 3 : 0))*(hs/297));      
+  
+ctx.globalAlpha = 1;
     
- ctx.globalAlpha = (pixpets[this.Held].RestartAni <= 0) ? 1 : ((5-pixpets[this.Held].RestartAni%5)/7)+0.375; 
- this.Image.src = "Png Files/"+this.Species+"Small"+pixpets[this.Held].Image.src.split("Small")[1];
- this.Direction = pixpets[this.Held].Direction;
-  ctx.drawImage(this.Image,(this.Image.width/2)*Math.floor(pixpets[this.Held].Frame)+0.25,0,this.Image.width/2-0.5,this.Image.height,(pixpets[this.Held].X*32+10)*(hs/297),(pixpets[this.Held].Y*32+45-this.Image.height/6-(this.Gigantisize ? 3 : 0))*(hs/297),(this.Image.width/6+(this.Gigantisize ? 3 : 0))*(hs/297),(this.Image.height/3+(this.Gigantisize ? 3 : 0))*(hs/297));  
+   if(index !== false){
+   ctx.drawImage(gifload[(index > 4) ? index+18 : index+5],this.Speciescrop[index*2],this.Speciescrop[index*2+1],50*2,50*2,101*(hs/297),262*(hs/297),30*(hs/297),30*(hs/297));
+   textmaker(this.Species,150,278,10);
+   textmaker(("USE AGAIN TO UNCARRY "+this.Species+". "+this.Species+" is in weight class "+this.Weight[index]).toUpperCase(),150,288,6);
     
-}  
+   
+   //Pixpets can also be selected through clicking them, their mugshot will immediately load when clicked because of this
+    if(collision(mousex,mousey,0,0,(this.X*32+10)*(hs/297),(this.Y*32+45-this.Image.height/6-(this.Gigantisize ? 3 : 0))*(hs/297),(this.Image.width/6+(this.Gigantisize ? 3 : 0))*(hs/297),(this.Image.height/3+(this.Gigantisize ? 3 : 0))*(hs/297))&&mousedown&&index !== currentpixpet){       
+    currentpixpet = index;    
+    selectloop = 0;
+    selectanimation = 0;  
+    mousedown = false;
+    }     
+    
+   }   
     
 }
 
@@ -59,15 +71,16 @@ pixpet.prototype.restart = function(raftused){
  this.RestartAni = 15;   
     
  tileload[this.Y][this.X] = 0; 
-   
+ tileload[raftlocator.Y][raftlocator.X] = 0;
+  
+ if(raftused){
+  raftlocator.X = tileload[this.Y].indexOf(0,(this.Checkpoint > 0) ? this.Checkpoint-1 : this.Checkpoint);
+  raftlocator.Y = this.Y;
+  }   
+    
  //quick load goes right to left in the beginning and left to right at the end
  for(let quickload = (this.Checkpoint == 0 ? this.Checkpoint+2 : this.Checkpoint);(this.Checkpoint == 0 ? quickload > this.Checkpoint : quickload < this.Checkpoint+2);(this.Checkpoint == 0 ? quickload-- : quickload++)){
   this.X = quickload;
-     
-  if(raftused){
-  raftlocator.X = this.X;
-  raftlocator.Y = this.Y;
-  }
      
   if(tileload[this.Y][this.X] == 1&&this.sandtile()&&!raftlocator.spottaken([this.Y,this.X],false)){
   tileload[this.Y][this.X] = 2; 
@@ -81,12 +94,7 @@ pixpet.prototype.restart = function(raftused){
  for(let tileloadx = this.Checkpoint;tileloadx < this.Checkpoint+2;tileloadx++){
   this.X = tileloadx;
   this.Y = tileloady;
-   
-  if(raftused){
-  raftlocator.X = this.X;
-  raftlocator.Y = this.Y;
-  }
-   
+
   if(tileload[this.Y][this.X] !== 2&&this.sandtile()&&!raftlocator.spottaken([this.Y,this.X],false)){
   tileload[this.Y][this.X] = 2; 
   return;
@@ -100,7 +108,7 @@ pixpet.prototype.restart = function(raftused){
 //For pixpets that need to reset their tile
 pixpet.prototype.sandtile = function(){
   
-    if((this.X < 2||this.X > 13)||((this.X == 2||this.X == 13)&&this.Y > 0&&this.Y < 6)){
+    if((this.X < 3||this.X > 13)||((this.X == 3||this.X == 13)&&this.Y > 0&&this.Y < 6)){
     return true;
     } else {
     return false;
@@ -120,13 +128,15 @@ pixpet.prototype.draw = function(index){
  if(this.BootWalk !== false){
  this.specialcheck("Pixeldust_Boots",this.BootWalk);
  }
-    
-   ctx.globalAlpha = (this.RestartAni <= 0) ? 1 : ((5-this.RestartAni%5)/7)+0.375; 
-    
+        
    if(this.RestartAni > 0) { this.RestartAni -= 0.4; } 
    if(this.RestartAni < 0&&this.Species == "Pentadile") { pixpets.splice(pixpets.indexOf(this),1) }
     
+    //Stacking makes the pixpet go a little bit over
+    if(this.Held == -1){
+    ctx.globalAlpha = (this.RestartAni <= 0) ? 1 : ((5-this.RestartAni%5)/7)+0.375;
     ctx.drawImage(this.Image,(this.Image.width/2)*Math.floor(this.Frame)+0.25,0,this.Image.width/2-0.5,this.Image.height,(this.X*32+(this.Species == "Pentadile" ? 4 : 10))*(hs/297),(this.Y*32+58-this.Image.height/6-(this.Gigantisize ? 3 : 0))*(hs/297),(this.Image.width/6+(this.Gigantisize ? 3 : 0))*(hs/297),(this.Image.height/3+(this.Gigantisize ? 3 : 0))*(hs/297));
+    } 
     
    ctx.globalAlpha = 1;
     
@@ -150,18 +160,11 @@ pixpet.prototype.draw = function(index){
     textmaker("SWITCH",216,28,10,true);
        
     ctx.globalAlpha = 1;
-    if(!endgame){ textmaker(this.Weight[index], 280,12,10,true) }
+    if(!endgame){ textmaker(this.Weight[index], 288,45,12,true) }
     
     if(collision(mousex,mousey,0,0,190*(hs/297),15*(hs/297),gifload[10].width/2*(hs/297),gifload[10].height/2*(hs/297))&&mousedown&&!endgame){
         
-    currentpixpet += 1;
-        
-    while(pixpets[currentpixpet].Held !== -1){
-      currentpixpet += 1;  
-      if(currentpixpet >= pixpetamount){
-      currentpixpet = 0;
-      }    
-    }
+    currentpixpet += 1;  
       
     if(currentpixpet >= pixpetamount){
     currentpixpet = 0;
@@ -222,8 +225,6 @@ pixpet.prototype.draw = function(index){
     this.Velocity = Math.random()/10+0.1;
     }
         
-       
-      
      //Pentadile chomping code
      if(Math.floor(this.Y) >= 0&&Math.ceil(this.Y) <= 6&&tileload[Math.round(this.Y)][this.X] == 2){
         
@@ -232,7 +233,7 @@ pixpet.prototype.draw = function(index){
       if(this.X == pixpets[pixpetsearch].X&&this !== pixpets[pixpetsearch]&&Math.round(this.Y) == pixpets[pixpetsearch].Y) 
           
         { 
-        pixpets[pixpetsearch].restart((raftlocator.X == pixpets[pixpetsearch].X&&raftlocator.Y == pixpets[pixpetsearch].Y)||(!raftlocator.sandtile() ? true : false));
+        pixpets[pixpetsearch].restart((raftlocator.X == pixpets[pixpetsearch].X&&raftlocator.Y == pixpets[pixpetsearch].Y) ? true : false);
         soundeffect("Audio Files/PentadileChomp.mp3");
         }
           
@@ -256,7 +257,7 @@ pixpet.prototype.keyDown = function(keyCode){
  if((keyCode == 38||keyCode == 87)&&!this.BootWalk){
   
  //Player can't touch other players
- if(tileload[this.Y-1]  !== undefined&&this.Direction == 1&&(tileload[this.Y-1][this.X] == 1||this.specialcheck("Wooden_Raft",[-1,0]))  )
+ if(tileload[this.Y-1]  !== undefined&&this.Direction == 1&&(tileload[this.Y-1][this.X] == 1||this.specialcheck("Wooden_Raft",[-1,0])||this.pixpetcheck([-1,0]))  )
  { 
    
      (!this.sandtile()) ? tileload[this.Y][this.X] = 0 : tileload[this.Y][this.X] = 1;
@@ -270,7 +271,7 @@ pixpet.prototype.keyDown = function(keyCode){
  } else if((keyCode == 37||keyCode == 65)&&!this.BootWalk){
  
  //Player can't touch other players
- if(tileload[this.Y][this.X-1] !== undefined&&this.Direction == 2&&(tileload[this.Y][this.X-1] == 1||this.specialcheck("Wooden_Raft",[0,-1]))){ 
+ if(tileload[this.Y][this.X-1] !== undefined&&this.Direction == 2&&(tileload[this.Y][this.X-1] == 1||this.specialcheck("Wooden_Raft",[0,-1])||this.pixpetcheck([0,-1]))){ 
      
      (!this.sandtile()) ? tileload[this.Y][this.X] = 0 : tileload[this.Y][this.X] = 1;
      tileload[this.Y][this.X-1] = 2;
@@ -283,7 +284,7 @@ pixpet.prototype.keyDown = function(keyCode){
  } else if((keyCode == 39||keyCode == 68)&&!this.BootWalk){
   
  //Player can't touch other players
- if(tileload[this.Y][this.X+1] !== undefined&&this.Direction == 3&&(tileload[this.Y][this.X+1] == 1||this.specialcheck("Wooden_Raft",[0,1]))){ 
+ if(tileload[this.Y][this.X+1] !== undefined&&this.Direction == 3&&(tileload[this.Y][this.X+1] == 1||this.specialcheck("Wooden_Raft",[0,1])||this.pixpetcheck([0,1]))){ 
      
      (!this.sandtile()) ? tileload[this.Y][this.X] = 0 : tileload[this.Y][this.X] = 1;
      tileload[this.Y][this.X+1] = 2;
@@ -295,7 +296,7 @@ pixpet.prototype.keyDown = function(keyCode){
  } else if((keyCode == 40||keyCode == 83)&&!this.BootWalk){
 
  //Player can't touch other players
- if(tileload[this.Y+1] !== undefined&&this.Direction == 4&&(tileload[this.Y+1][this.X] == 1||this.specialcheck("Wooden_Raft",[1,0]))){ 
+ if(tileload[this.Y+1] !== undefined&&this.Direction == 4&&(tileload[this.Y+1][this.X] == 1||this.specialcheck("Wooden_Raft",[1,0])||this.pixpetcheck([1,0]))){ 
      
      (!this.sandtile()) ? tileload[this.Y][this.X] = 0 : tileload[this.Y][this.X] = 1;
      tileload[this.Y+1][this.X] = 2;
@@ -315,12 +316,12 @@ pixpet.prototype.keyDown = function(keyCode){
      
    //item sensing, you can only pick up items directly that are in sand
    if(
-       ((this.X == items[invenitem].X&&this.Y == items[invenitem].Y&&((this.X < 2||this.X > 13)||((this.X == 2||this.X == 13)&&this.Y > 0&&this.Y < 6)))||
+       ((this.X == items[invenitem].X&&this.Y == items[invenitem].Y&&((this.X < 3||this.X > 13)||((this.X == 3||this.X == 13)&&this.Y > 0&&this.Y < 6)))||
        (this.X == items[invenitem].X-1&&this.Direction == 3&&!items[invenitem].sensecheck(true))||
        (this.X == items[invenitem].X+1&&this.Direction == 2&&!items[invenitem].sensecheck(true))||
        (this.Y == items[invenitem].Y-1&&this.Direction == 4&&!items[invenitem].sensecheck(true))||
        (this.Y == items[invenitem].Y+1&&this.Direction == 1&&!items[invenitem].sensecheck(true)))&&
-       (this.X == items[invenitem].X||this.Y == items[invenitem].Y)&&items[invenitem].Held == -1&&items[invenitem].Type !== "Pixpet_Transporter"){    
+       (this.X == items[invenitem].X||this.Y == items[invenitem].Y)&&items[invenitem].Held == -1&&items[invenitem].Type !== "Pixpet_Transporter"&&items[invenitem].Type !== "Wooden_Raft"){    
        
    this.Inventory = items[invenitem];
    items[invenitem].Held = currentpixpet;
@@ -501,7 +502,7 @@ pixpet.prototype.specialcheck = function(checktype,check){
       
       for(let pixpettransport = 0;pixpettransport < pixpetamount;pixpettransport++){
     
-      if(pixpets[pixpettransport].X == items[transport].X&&pixpets[pixpettransport].Y == items[transport].Y&&pixpets[pixpettransport] !== this){
+      if(pixpets[pixpettransport].X == items[transport].X&&pixpets[pixpettransport].Y == items[transport].Y&&pixpets[pixpettransport] !== this&&pixpets[pixpettransport].Held == -1){
       pixpets[pixpettransport].X = this.X;
       pixpets[pixpettransport].Y = this.Y;  
       this.X = items[transport].X;
@@ -525,4 +526,21 @@ pixpet.prototype.specialcheck = function(checktype,check){
     
   return false;
     
+}
+
+pixpet.prototype.pixpetcheck = function(check){
+    
+    for(let pixpetfind = 0;pixpetfind < pixpetamount;pixpetfind++){
+      
+       if(this.Held == -1&&(this.Inventory == -1||this.Inventory.Type !== undefined)&&pixpets[pixpetfind].Inventory == -1&&pixpets[pixpetfind].Held == -1&&check[1]+this.X == pixpets[pixpetfind].X&&check[0]+this.Y == pixpets[pixpetfind].Y&&this !== pixpets[pixpetfind]&&((this.Weight[currentpixpet] < pixpets[pixpetfind].Weight[pixpetfind])||pixpets[pixpetfind].Gigantisize)){
+       pixpets[pixpetfind].Inventory = this;
+       this.Held = pixpetfind;
+       soundeffect("Audio Files/ItemPickup.mp3");
+       return true;
+       }
+        
+    }
+    
+    soundeffect("Audio Files/ItemDenied.mp3");
+    return false 
 }

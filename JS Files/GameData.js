@@ -113,13 +113,13 @@ soundeffectvolume = 1;
 soundsloop = 0;
 
 tileload = 
-    [ [1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1],
-      [1,1,1,0,0,0,0,0,0,0,0,0,0,1,1,1],
-      [1,1,1,0,0,0,0,0,0,0,0,0,0,1,1,1],
-      [1,1,1,0,0,0,0,0,0,0,0,0,0,1,1,1],
-      [1,1,1,0,0,0,0,0,0,0,0,0,0,1,1,1],
-      [1,1,1,0,0,0,0,0,0,0,0,0,0,1,1,1],
-      [1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1],
+    [ [1,1,1,0,0,0,0,0,0,0,0,0,0,0,1,1],
+      [1,1,1,1,0,0,0,0,0,0,0,0,0,1,1,1],
+      [1,1,1,1,0,0,0,0,0,0,0,0,0,1,1,1],
+      [1,1,1,1,0,0,0,0,0,0,0,0,0,1,1,1],
+      [1,1,1,1,0,0,0,0,0,0,0,0,0,1,1,1],
+      [1,1,1,1,0,0,0,0,0,0,0,0,0,1,1,1],
+      [1,1,1,0,0,0,0,0,0,0,0,0,0,0,1,1],
     ];  
 
 tooltips = function(){    
@@ -268,13 +268,13 @@ timer = 60;
 endgame = false;
 difficultypage = false;
 tileload = 
-    [ [2,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1],
-      [2,(pixpetamount > 10) ? 2 : 1,1,0,0,0,0,0,0,0,0,0,0,1,1,1],
-      [2,(pixpetamount > 8) ? 2 : 1,1,0,0,0,0,0,0,0,0,0,0,1,1,1],
-      [2,2,1,0,0,0,0,0,0,0,0,0,0,1,1,1],
-      [2,(pixpetamount > 8) ? 2 : 1,1,0,0,0,0,0,0,0,0,0,0,1,1,1],
-      [2,(pixpetamount > 10) ? 2 : 1,1,0,0,0,0,0,0,0,0,0,0,1,1,1],
-      [2,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1],
+    [ [2,1,(pixpetamount > 10) ? 2 : 1,0,0,0,0,0,0,0,0,0,0,0,1,1],
+      [2,1,(pixpetamount > 8) ? 2 : 1,1,0,0,0,0,0,0,0,0,0,1,1,1],
+      [2,1,1,1,0,0,0,0,0,0,0,0,0,1,1,1],
+      [2,1,2,1,0,0,0,0,0,0,0,0,0,1,1,1],
+      [2,1,1,1,0,0,0,0,0,0,0,0,0,1,1,1],
+      [2,1,(pixpetamount > 8) ? 2 : 1,1,0,0,0,0,0,0,0,0,0,1,1,1],
+      [2,1,(pixpetamount > 10) ? 2 : 1,0,0,0,0,0,0,0,0,0,0,1,1],
     ];    
 seconds = 0;
 score = 0;
@@ -288,19 +288,19 @@ pixpets.push(new pixpet("Troffinch",0,3));
 pixpets.push(new pixpet("Feliphene",0,4));
 pixpets.push(new pixpet("Veemooth",0,5));
 pixpets.push(new pixpet("Velibolt",0,6));
-pixpets.push(new pixpet("Velox",1,3));
+pixpets.push(new pixpet("Velox",2,3));
     
 if(pixpetamount >= 10) { 
-    pixpets.push(new pixpet("Igupunk",1,2)); 
-    pixpets.push(new pixpet("Iguzzle",1,4));
+    pixpets.push(new pixpet("Igupunk",2,1)); 
+    pixpets.push(new pixpet("Iguzzle",2,5));
 }
     
 if(pixpetamount == 12) {
-    pixpets.push(new pixpet("Owluck",1,1)); 
-    pixpets.push(new pixpet("Indigoat",1,5));
+    pixpets.push(new pixpet("Owluck",2,0)); 
+    pixpets.push(new pixpet("Indigoat",2,6));
 }
    
-pixpets.push(new pixpet("Pentadile",6,6));
+pixpets.push(new pixpet("Pentadile",7,6));
 pixpets.push(new pixpet("Pentadile",11,2));
     
 if(pixpetamount >= 10){
@@ -308,13 +308,13 @@ pixpets.push(new pixpet("Pentadile",9,4));
 }
     
 if(pixpetamount == 12){
-pixpets.push(new pixpet("Pentadile",4,0)); 
+pixpets.push(new pixpet("Pentadile",5,0)); 
 }    
     
 selectloop = 0;
 selectanimation = 0;
       
-items.push(new item("Wooden_Raft",2,3));
+items.push(new item("Wooden_Raft",4,3));
 raftlocator = items[items.length-1];
 
 if(itemamount){   
@@ -326,20 +326,20 @@ while(itemstaken < 2){
 itemrandomizer = Math.floor(Math.random()*itemnames.length);
  
 if(itemrandomizer == 0&&itemnames[itemrandomizer] !== "Taken"){
-items.push(new item("Pixeldust_Boots",2,1));
+items.push(new item("Pixeldust_Boots",3,1));
 itemnames[itemrandomizer] = "Taken"; 
 itemstaken += 1;
 } else if(itemrandomizer == 1&&itemnames[itemrandomizer] !== "Taken"){
-items.push(new item("Pixpet_Transporter",2,4));
+items.push(new item("Pixpet_Transporter",3,4));
 items.push(new item("Pixpet_Transporter",13,4));
 itemnames[itemrandomizer] = "Taken";  
 itemstaken += 1;
 } else if(itemrandomizer == 2&&itemnames[itemrandomizer] !== "Taken") {
-items.push(new item("Devolution_Fruit_Thermos_Bottle",2,5));
+items.push(new item("Devolution_Fruit_Thermos_Bottle",3,5));
 itemnames[itemrandomizer] = "Taken"; 
 itemstaken += 1;
 } else if(itemrandomizer == 3&&itemnames[itemrandomizer] !== "Taken") {
-items.push(new item("Potion_of_Gigantism",2,2));
+items.push(new item("Potion_of_Gigantism",3,2));
 itemnames[itemrandomizer] = "Taken"; 
 itemstaken += 1;
 } 
@@ -374,35 +374,33 @@ soundeffect = function(file){
     
 }
 
-keydowncode = function(){
-
+keydowncode = function(keyhandler=0){
+ 
 //can only use hotkeys during gameplay
 if(!endgame){  
     
   //switch hotkey
-  if(event.keyCode == 81){  
+  if(event.keyCode == 81||(event == undefined&&keyhandler == 81)){  
     
-    currentpixpet += 1;  
-    while(pixpets[currentpixpet].Held !== -1){
-      currentpixpet += 1;  
-      if(currentpixpet >= pixpetamount){
-      currentpixpet = 0;
-      }    
-    }
-      
-   if(currentpixpet >= pixpetamount){
-   currentpixpet = 0;
-   }  
-    
+    currentpixpet += 1;    
+    if(currentpixpet >= pixpetamount){
+    currentpixpet = 0;
+    }  
     selectanimation = 0;
     selectloop = 0;
     
   } else {
-  pixpets[currentpixpet].keyDown(event.keyCode);      
+   
+   //if a pixpet is stacked they 'control' their host's commands
+   if(pixpets[currentpixpet].Held == -1){    
+   pixpets[currentpixpet].keyDown(event == undefined ? keyhandler : event.keyCode);   
+   } else {
+   pixpets[pixpets[currentpixpet].Held].keyDown(event == undefined ? keyhandler : event.keyCode); 
+   }
+      
   }
      
- }
-    
+}    
 }
 
 textmaker = function(text,x,y,size,sizeswitch=false){
@@ -476,9 +474,9 @@ mousedown = false;
 }
 
 maingame = function(){
-    
+   
 //if made small screen through tab hiding it will be become small screen automatically
-if((!document.fullscreenEnabled&&!document.mozFullScreenEnabled&&!document.webkitFullscreenEnabled&&!document.msFullscreenEnabled)){  
+if((!document.fullscreenElement&&!document.mozFullScreenElement&&!document.webkitFullscreenElement&&!document.msFullscreenElement)){  
  canvas.width = 528;
  canvas.height = 297;
  ws = canvas.width;
@@ -517,7 +515,7 @@ ctx.globalAlpha = 1;
 //tile loader
 for(let tileloady = 0;tileloady < 7;tileloady++){      
  for(let tileload = 0;tileload < 16;tileload++){
-  ctx.drawImage(((tileload <= 1||tileload >= 14)||((tileloady >= 1&&tileloady <= 5)&&(tileload == 2||tileload == 13))) ? gifload[4] : gifload[3],(tileload*32+8)*(hs/297),((tileloady*32)+50)*(hs/297),32*(hs/297),32*(hs/297));
+  ctx.drawImage(((tileload <= 2||tileload >= 14)||((tileloady >= 1&&tileloady <= 5)&&(tileload == 3||tileload == 13))) ? gifload[4] : gifload[3],(tileload*32+8)*(hs/297),((tileloady*32)+50)*(hs/297),32*(hs/297),32*(hs/297));
  
   if(!endgame){  
      
@@ -582,11 +580,9 @@ completion = pixpetamount;
     
 for(let pixpetload = 0;pixpetload < pixpets.length;pixpetload++){
     
-if(pixpets[pixpetload].Held == -1){
 pixpets[pixpetload].draw(pixpetload);
-}
   
-if(pixpets[pixpetload].X > 12&&pixpets[pixpetload].sandtile()){
+if(pixpets[pixpetload].X > 12&&pixpets[pixpetload].sandtile()&&pixpets[pixpetload].Held == -1){
 completion -= 1;
 }
     
@@ -609,46 +605,51 @@ ctx.globalAlpha = 1;
 if(!endgame){
     
 ctx.drawImage(gifload[16],100*(hs/297),260*(hs/297),100/3*(hs/297),100/3*(hs/297));
+    
+//Item and pixpet information can both be activated at the same time
 if(pixpets[currentpixpet].Inventory !== -1)
-{ pixpets[currentpixpet].Inventory.information(pixpets.indexOf(pixpets[currentpixpet].Inventory)) }
+{ pixpets[currentpixpet].Inventory.information(pixpets.indexOf(pixpets[currentpixpet].Inventory)); } 
+
+if(pixpets[currentpixpet].Held !== -1)
+{ pixpets[currentpixpet].information(); }
     
 }
     
 if(!endgame){   
     
     //up button drawer
-    collision(mousex,mousey,0,0,50*(hs/297),260*(hs/297),64/3*(hs/297),36/3*(hs/297)) ? ctx.globalAlpha = 1 : ctx.globalAlpha = 0.85; 
-    ctx.drawImage(gifload[11],50*(hs/297),260*(hs/297),64/3*(hs/297),36/3*(hs/297));
-    if(collision(mousex,mousey,0,0,50*(hs/297),260*(hs/297),64/3*(hs/297),36/3*(hs/297))&&mousedown){ pixpets[currentpixpet].keyDown(38) 
+    collision(mousex,mousey,0,0,45*(hs/297),255*(hs/297),64/3*(hs/297),36/3*(hs/297)) ? ctx.globalAlpha = 1 : ctx.globalAlpha = 0.85; 
+    ctx.drawImage(gifload[11],45*(hs/297),255*(hs/297),64/3*(hs/297),36/3*(hs/297));
+    if(collision(mousex,mousey,0,0,45*(hs/297),255*(hs/297),64/3*(hs/297),36/3*(hs/297))&&mousedown){ keydowncode(38) 
 }                                                                                              
     //down button drawer
-    collision(mousex,mousey,0,0,50*(hs/297),286*(hs/297),64/3*(hs/297),36/3*(hs/297)) ? ctx.globalAlpha = 1 : ctx.globalAlpha = 0.85; 
-    ctx.drawImage(gifload[13],50*(hs/297),286*(hs/297),64/3*(hs/297),36/3*(hs/297));
-    if(collision(mousex,mousey,0,0,50*(hs/297),286*(hs/297),64/3*(hs/297),36/3*(hs/297))&&mousedown){ pixpets[currentpixpet].keyDown(40) }
+    collision(mousex,mousey,0,0,45*(hs/297),281*(hs/297),64/3*(hs/297),36/3*(hs/297)) ? ctx.globalAlpha = 1 : ctx.globalAlpha = 0.85; 
+    ctx.drawImage(gifload[13],45*(hs/297),281*(hs/297),64/3*(hs/297),36/3*(hs/297));
+    if(collision(mousex,mousey,0,0,45*(hs/297),281*(hs/297),64/3*(hs/297),36/3*(hs/297))&&mousedown){ keydowncode(40) }
     //left button drawer
-    collision(mousex,mousey,0,0,35*(hs/297),268*(hs/297),36/3*(hs/297),64/3*(hs/297)) ? ctx.globalAlpha = 1 : ctx.globalAlpha = 0.85; 
-    ctx.drawImage(gifload[14],35*(hs/297),268*(hs/297),36/3*(hs/297),64/3*(hs/297));
-    if(collision(mousex,mousey,0,0,35*(hs/297),268*(hs/297),36/3*(hs/297),64/3*(hs/297))&&mousedown){ pixpets[currentpixpet].keyDown(37) }
+    collision(mousex,mousey,0,0,30*(hs/297),263*(hs/297),36/3*(hs/297),64/3*(hs/297)) ? ctx.globalAlpha = 1 : ctx.globalAlpha = 0.85; 
+    ctx.drawImage(gifload[14],30*(hs/297),263*(hs/297),36/3*(hs/297),64/3*(hs/297));
+    if(collision(mousex,mousey,0,0,30*(hs/297),263*(hs/297),36/3*(hs/297),64/3*(hs/297))&&mousedown){ keycdowncode(37) }
     //right button drawer
-    collision(mousex,mousey,0,0,74*(hs/297),268*(hs/297),36/3*(hs/297),64/3*(hs/297)) ? ctx.globalAlpha = 1 : ctx.globalAlpha = 0.85; 
-    ctx.drawImage(gifload[12],74*(hs/297),268*(hs/297),36/3*(hs/297),64/3*(hs/297));
-    if(collision(mousex,mousey,0,0,74*(hs/297),268*(hs/297),36/3*(hs/297),64/3*(hs/297))&&mousedown){ pixpets[currentpixpet].keyDown(39) }
+    collision(mousex,mousey,0,0,69*(hs/297),263*(hs/297),36/3*(hs/297),64/3*(hs/297)) ? ctx.globalAlpha = 1 : ctx.globalAlpha = 0.85; 
+    ctx.drawImage(gifload[12],69*(hs/297),263*(hs/297),36/3*(hs/297),64/3*(hs/297));
+    if(collision(mousex,mousey,0,0,69*(hs/297),263*(hs/297),36/3*(hs/297),64/3*(hs/297))&&mousedown){ keydowncode(39) }
     //inventory button drawer (E hotkey)
-    collision(mousex,mousey,0,0,50*(hs/297),273*(hs/297),64/3*(hs/297),36/3*(hs/297)) ? ctx.globalAlpha = 1 : ctx.globalAlpha = 0.85; 
-    ctx.drawImage(gifload[15],50*(hs/297),273*(hs/297),64/3*(hs/297),36/3*(hs/297));
-    if(collision(mousex,mousey,0,0,50*(hs/297),273*(hs/297),64/3*(hs/297),36/3*(hs/297))&&mousedown){ pixpets[currentpixpet].keyDown(32); mousedown = false; } 
+    collision(mousex,mousey,0,0,45*(hs/297),268*(hs/297),64/3*(hs/297),36/3*(hs/297)) ? ctx.globalAlpha = 1 : ctx.globalAlpha = 0.85; 
+    ctx.drawImage(gifload[15],45*(hs/297),268*(hs/297),64/3*(hs/297),36/3*(hs/297));
+    if(collision(mousex,mousey,0,0,45*(hs/297),268*(hs/297),64/3*(hs/297),36/3*(hs/297))&&mousedown){ keydowncode(32); mousedown = false; } 
     
 }
     
     //sound effects
-    collision(mousex,mousey,0,0,5*(hs/297),238*(hs/297),64/3*(hs/297),64/3*(hs/297)) ? ctx.globalAlpha = 1 : ctx.globalAlpha = 0.85; 
-    ctx.drawImage((soundeffectvolume == 0) ? gifload[20] : gifload[19],5*(hs/297),238*(hs/297),64/3*(hs/297),64/3*(hs/297));
-    if(collision(mousex,mousey,0,0,5*(hs/297),238*(hs/297),64/3*(hs/297),64/3*(hs/297))&&mousedown){ (soundeffectvolume == 0) ? soundeffectvolume = 1 : soundeffectvolume = 0; mousedown = false;} 
+    collision(mousex,mousey,0,0,495*(hs/297),238*(hs/297),64/3*(hs/297),64/3*(hs/297)) ? ctx.globalAlpha = 1 : ctx.globalAlpha = 0.85; 
+    ctx.drawImage((soundeffectvolume == 0) ? gifload[20] : gifload[19],495*(hs/297),238*(hs/297),64/3*(hs/297),64/3*(hs/297));
+    if(collision(mousex,mousey,0,0,495*(hs/297),238*(hs/297),64/3*(hs/297),64/3*(hs/297))&&mousedown){ (soundeffectvolume == 0) ? soundeffectvolume = 1 : soundeffectvolume = 0; mousedown = false;} 
     
     //music
-    collision(mousex,mousey,0,0,5*(hs/297),268*(hs/297),64/3*(hs/297),64/3*(hs/297)) ? ctx.globalAlpha = 1 : ctx.globalAlpha = 0.85; 
-    ctx.drawImage((music.volume == 0) ? gifload[18] : gifload[17],5*(hs/297),268*(hs/297),64/3*(hs/297),64/3*(hs/297));
-    if(collision(mousex,mousey,0,0,5*(hs/297),268*(hs/297),64/3*(hs/297),64/3*(hs/297))&&mousedown){ (music.volume == 0) ? music.volume = 0.7 : music.volume = 0; mousedown = false;} 
+    collision(mousex,mousey,0,0,495*(hs/297),268*(hs/297),64/3*(hs/297),64/3*(hs/297)) ? ctx.globalAlpha = 1 : ctx.globalAlpha = 0.85; 
+    ctx.drawImage((music.volume == 0) ? gifload[18] : gifload[17],495*(hs/297),268*(hs/297),64/3*(hs/297),64/3*(hs/297));
+    if(collision(mousex,mousey,0,0,495*(hs/297),268*(hs/297),64/3*(hs/297),64/3*(hs/297))&&mousedown){ (music.volume == 0) ? music.volume = 0.7 : music.volume = 0; mousedown = false;} 
  
     //selected pixpet animation
     if(selectloop < 3&&!endgame){ 
@@ -674,7 +675,7 @@ mousedown = false;
 if(seconds > 2500){
 seconds = 2500;
 }
-       
+    
 }
 
 //buttons, mouse moving, clicking

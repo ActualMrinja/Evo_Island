@@ -29,7 +29,7 @@ this.BootTrail.src = "Png Files/PixeldustTrails.png";
 //For items that have a y-axis boost when being used
 item.prototype.sandtile = function(){
   
-    if((this.X < 2||this.X > 13)||((this.X == 2||this.X == 13)&&this.Y > 0&&this.Y < 6)){
+    if((this.X < 3||this.X > 13)||((this.X == 3||this.X == 13)&&this.Y > 0&&this.Y < 6)){
     return true;
     } else {
     return false;
