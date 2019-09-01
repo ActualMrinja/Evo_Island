@@ -399,9 +399,7 @@ if(!endgame){
 }
 
 textmaker = function(text,x,y,size,sizeswitch=false){
-    
-size *= (window.devicePixelRatio || 1);    
-    
+   
 if(sizeswitch){
 ctx.font = "900 "+size*(hs/297)+"px SG12";
 ctx.strokeStyle = "black";
