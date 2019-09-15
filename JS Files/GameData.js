@@ -127,21 +127,16 @@ tooltips = function(){
 //score keeper
 if(timerbonus == 1||(timerbonus > 1&&timer > 0)){  
 
-if(Math.floor(seconds) > 0&&!(score > Math.ceil((3000-scoreanimation*30)+(!itemamount ? 50 : 0)*(timerbonus)*(1+((pixpetamount-8)*0.1))))){
+if(score < Math.ceil((3000-scoreanimation*30)+(!itemamount ? 50 : 0)*(timerbonus)*(1+((pixpetamount-8)*0.1)))){
 
 score += Math.ceil((3000-scoreanimation*30)+(!itemamount ? 50 : 0)*(timerbonus)*(1+((pixpetamount-8)*0.1)))/30;
-seconds -= scoreanimation/30;
-  
-if(seconds <= 0){ seconds = 0; score = Math.ceil(score)}
-if(score >= (3000-scoreanimation*30)){ score = Math.ceil((3000-scoreanimation*30)+(!itemamount ? 50 : 0)*(timerbonus)*(1+((pixpetamount-8)*0.1))); seconds = 0;}
-if(score < 30+(!itemamount ? 50 : 0)*(1+((pixpetamount-8)*0.1))*(timerbonus)){ score == 30+(!itemamount ? 50 : 0)*(timerbonus)*(1+((pixpetamount-8)*0.1)) }  
+if(score >= Math.ceil((3000-scoreanimation*30)+(!itemamount ? 50 : 0)*(timerbonus)*(1+((pixpetamount-8)*0.1)))/30){ score = Math.ceil((3000-scoreanimation*30)+(!itemamount ? 50 : 0)*(timerbonus)*(1+((pixpetamount-8)*0.1)))/30 }
+
 } else {
    
-score = Math.ceil((3000-scoreanimation*30)+(!itemamount ? 50 : 0)*(timerbonus)*(1+((pixpetamount-8)*0.1)));
-if(score < 30+Math.ceil((3000-scoreanimation*30)+(!itemamount ? 50 : 0)*(timerbonus)*(1+((pixpetamount-8)*0.1)))) {
-seconds = 0;     
-}
-
+score = Math.ceil(3(3000-scoreanimation*30)+(!itemamount ? 50 : 0)*(timerbonus)*(1+((pixpetamount-8)*0.1)));
+if(score < 0) { score = 0 }
+    
 }
 }
   
