@@ -175,15 +175,33 @@ textmaker("YOUR TIME IS UP",260,125,25,true);
     }
     textmaker("TRY AGAIN",265,173,12,true);
         
-      
-   //Score sending goes here, can't send if timer is up
    if(timer !== 0){
         
    collision(mousex,mousey,0,0,(264-gifload[21].width/6)*(hs/297),200*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297)) ? ctx.globalAlpha = 1 : ctx.globalAlpha = 0.85;
     ctx.drawImage(!mouseup&&ctx.globalAlpha == 1 ? gifload[30] : gifload[21],(264-gifload[21].width/6)*(hs/297),200*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297));
-    if(collision(mousex,mousey,0,0,(264-gifload[21].width/6)*(hs/297),200*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297))&&mousedown){   }
+   
+     //Score sending goes here, can't send if timer is up
+       if(collision(mousex,mousey,0,0,(264-gifload[21].width/6)*(hs/297),200*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297))&&mousedown)
+     {   
+      difficultypage = true; 
+      music.play();
+      currentpixpet = 0;
+      pixpets = [];
+      pixpets.push(new pixpet("Drax",3,5));
+      items = [];
+      
+      if(timerbonus == 1){
+      timer = false;
+        } else if(timerbonus == 1.25) {
+      timer = 120;
+        } else {
+      timer = 60;
+      }
+    
+     } 
+       
     textmaker("SEND SCORE",266,223,12,true); 
-    }
+    } //end of end screen code
         
     }
         
