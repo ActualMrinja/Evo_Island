@@ -130,11 +130,11 @@ if(timerbonus == 1||(timerbonus > 1&&timer > 0)){
 if(score < Math.ceil((3000-scoreanimation*30)+(!itemamount ? 50 : 0)*(timerbonus)*(1+((pixpetamount-8)*0.1)))){
 
 score += Math.ceil((3000-scoreanimation*30)+(!itemamount ? 50 : 0)*(timerbonus)*(1+((pixpetamount-8)*0.1)))/30;
-if(score >= Math.ceil((3000-scoreanimation*30)+(!itemamount ? 50 : 0)*(timerbonus)*(1+((pixpetamount-8)*0.1)))/30){ score = Math.ceil((3000-scoreanimation*30)+(!itemamount ? 50 : 0)*(timerbonus)*(1+((pixpetamount-8)*0.1)))/30 }
+if(score >= Math.ceil((3000-scoreanimation*30)+(!itemamount ? 50 : 0)*(timerbonus)*(1+((pixpetamount-8)*0.1)))){ score = Math.ceil((3000-scoreanimation*30)+(!itemamount ? 50 : 0)*(timerbonus)*(1+((pixpetamount-8)*0.1))) }
 
 } else {
    
-score = Math.ceil(3(3000-scoreanimation*30)+(!itemamount ? 50 : 0)*(timerbonus)*(1+((pixpetamount-8)*0.1)));
+score = Math.ceil((3000-scoreanimation*30)+(!itemamount ? 50 : 0)*(timerbonus)*(1+((pixpetamount-8)*0.1)));
 if(score < 0) { score = 0 }
     
 }
