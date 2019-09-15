@@ -153,7 +153,7 @@ textmaker("YOUR TIME IS UP",260,125,25,true);
 
     if(!difficultypage){
         
-    if(score == Math.ceil(((3000-scoreanimation*30)+(!itemamount ? 50 : 0))*(timerbonus)*(1+((pixpetamount-8)*0.1)))||(timerbonus > 1&&timer == 0)){
+    if((score == Math.ceil(((3000-scoreanimation*30)+(!itemamount ? 50 : 0))*(timerbonus)*(1+((pixpetamount-8)*0.1)))||Math.ceil(((3000-scoreanimation*30)+(!itemamount ? 50 : 0))*(timerbonus)*(1+((pixpetamount-8)*0.1))) < 0)||(timerbonus > 1&&timer == 0)){
     collision(mousex,mousey,0,0,(264-gifload[21].width/6)*(hs/297),150*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297)) ? ctx.globalAlpha = 1 : ctx.globalAlpha = 0.85;
     ctx.drawImage(!mouseup&&ctx.globalAlpha == 1 ? gifload[30] : gifload[21],(264-gifload[21].width/6)*(hs/297),150*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297));
     if(collision(mousex,mousey,0,0,(264-gifload[21].width/6)*(hs/297),150*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297))&&mousedown){ 
