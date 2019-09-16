@@ -530,13 +530,13 @@ for(let tileloady = 0;tileloady < 7;tileloady++){
      
    //You can also control pixpets by clicking tiles
    if(collision(mousex,mousey,0,0,(tileload*32+8)*(hs/297),(tileloady*32+50)*(hs/297),32*(hs/297),32*(hs/297))&&mousedown&&tileloady == pixpets[currentpixpet].Y&&tileload-1 == pixpets[currentpixpet].X&&pixpets[currentpixpet].X < 15){
-   keydowncode(39); mousedown = false;
+   keydowncode(39);
    } else if(collision(mousex,mousey,0,0,(tileload*32+8)*(hs/297),(tileloady*32+50)*(hs/297),32*(hs/297),32*(hs/297))&&mousedown&&tileloady == pixpets[currentpixpet].Y&&tileload+1 == pixpets[currentpixpet].X&&pixpets[currentpixpet].X > 0){
-   keydowncode(37); mousedown = false;
+   keydowncode(37);
    } else if(collision(mousex,mousey,0,0,(tileload*32+8)*(hs/297),(tileloady*32+50)*(hs/297),32*(hs/297),32*(hs/297))&&mousedown&&tileloady+1 == pixpets[currentpixpet].Y&&tileload == pixpets[currentpixpet].X&&pixpets[currentpixpet].Y > 0){
-   keydowncode(38); mousedown = false;
+   keydowncode(38); 
    } else if(collision(mousex,mousey,0,0,(tileload*32+8)*(hs/297),(tileloady*32+50)*(hs/297),32*(hs/297),32*(hs/297))&&mousedown&&tileloady-1 == pixpets[currentpixpet].Y&&tileload == pixpets[currentpixpet].X&&pixpets[currentpixpet].Y < 6&&!collision(mousex,mousey,0,0,45*(hs/297),255*(hs/297),64/3*(hs/297),36/3*(hs/297))){
-   keydowncode(40); mousedown = false;
+   keydowncode(40);
    }
      
   }   
@@ -631,8 +631,7 @@ if(!endgame){
     //up button drawer
     collision(mousex,mousey,0,0,45*(hs/297),255*(hs/297),64/3*(hs/297),36/3*(hs/297)) ? ctx.globalAlpha = 1 : ctx.globalAlpha = 0.85; 
     ctx.drawImage(gifload[11],45*(hs/297),255*(hs/297),64/3*(hs/297),36/3*(hs/297));
-    if(collision(mousex,mousey,0,0,45*(hs/297),255*(hs/297),64/3*(hs/297),36/3*(hs/297))&&mousedown){ keydowncode(38) 
-}                                                                                              
+    if(collision(mousex,mousey,0,0,45*(hs/297),255*(hs/297),64/3*(hs/297),36/3*(hs/297))&&mousedown){ keydowncode(38) }                                                                                              
     //down button drawer
     collision(mousex,mousey,0,0,45*(hs/297),281*(hs/297),64/3*(hs/297),36/3*(hs/297)) ? ctx.globalAlpha = 1 : ctx.globalAlpha = 0.85; 
     ctx.drawImage(gifload[13],45*(hs/297),281*(hs/297),64/3*(hs/297),36/3*(hs/297));
