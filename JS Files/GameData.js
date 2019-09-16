@@ -1,3 +1,4 @@
+canvas = document.getElementById("Canvas-EvoIsland");
 ctx = canvas.getContext("2d");
 
 /**
