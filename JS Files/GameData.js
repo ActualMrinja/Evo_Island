@@ -612,7 +612,7 @@ difficultypage = false;
 for(let quickani = 0;quickani < pixpetamount;quickani++){ pixpets[quickani].EvolutionAni = 20-quickani; }
     
 music.pause();
-soundeffect("Audio Files/EndJingle.mp3");
+soundeffect("Audio Files/EvoIslandEndJingle.wav");
 }
     
 ctx.globalAlpha = 1; 
