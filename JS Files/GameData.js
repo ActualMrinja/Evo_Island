@@ -547,17 +547,6 @@ for(let tileloady = 0;tileloady < 7;tileloady++){
       
 textmaker("EVO ISLAND",300,33.5,25);  
     
-if(endgame&&difficultypage){   
-textmaker('TIME: 0"00"00',15,(timer!== false) ? 23 : 33,18); 
-} else {
-textmaker("TIME: "+Math.floor(seconds/60)+'"'+("0"+Math.floor(seconds%60)).slice(-2)+'"'+("0"+Math.floor(seconds%1*100)).slice(-2), 15, (timer!== false) ? 23 : 33,18); 
-    
-if(!endgame&&starttimer){
-seconds += (1/30);
-} 
-   
-}
-    
 if(timer !== false){   
   
 if(endgame&&difficultypage){   
@@ -577,8 +566,18 @@ difficultypage = false;
 
 }
     
-}    
+}   
     
+if(endgame&&difficultypage){   
+textmaker('TIME: 0"00"00',15,(timer!== false) ? 23 : 33,18); 
+} else {
+textmaker("TIME: "+Math.floor(seconds/60)+'"'+("0"+Math.floor(seconds%60)).slice(-2)+'"'+("0"+Math.floor(seconds%1*100)).slice(-2), 15, (timer!== false) ? 23 : 33,18); 
+    
+if(!endgame&&starttimer){
+seconds += (1/30);
+} 
+   
+}   
     
 //load items then pixpets
 for(let itemload = 0;itemload < items.length;itemload++){
