@@ -104,10 +104,20 @@ score = 0;
 endgame = true;
 difficultypage = true;
 
-music = new Audio("Audio Files/MainTheme.mp3");
+//music handler, intro >> main theme
+music = new Audio("Audio Files/EvoIslandIntro.ogg");
 music.volume = 0.7;
-music.loop = true;
+music.loop = false;
 music.play()
+
+music.onended = function(){
+    let keepvolume = music.volume; //makes the music keep its volume when resetting
+    music.pause();
+    music = new Audio("Audio Files/EvoIslandMainTheme.ogg")
+    music.volume = keepvolume
+    music.loop = true;
+    music.play();
+}
 
 sounds = [0,0,0,0,0,0];
 soundeffectvolume = 1;
