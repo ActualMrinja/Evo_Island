@@ -104,7 +104,8 @@ score = 0;
 endgame = true;
 difficultypage = true;
 
-//music handler, intro >> main theme
+//music handler, intro >> main theme, main theme is preloaded
+music = new Audio("Audio Files/EvoIslandMainTheme.ogg")
 music = new Audio("Audio Files/EvoIslandIntro.ogg");
 music.volume = 0.7;
 music.loop = false;
