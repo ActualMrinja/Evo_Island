@@ -76,7 +76,6 @@ selectloop = 0;
 pixpets = [];
 pixpets.push(new pixpet("Drax",3,5));
 
-/**Lily Pads should always be the first/second item coding wise and visually because they are also tiles**/
 items = [];
 
 completion = 0;
@@ -94,7 +93,6 @@ starttimer = false;
 
 itemamount = true;
 pixpetamount = 8;
-//amountkept = 8;
 timer = false;
 timerbonus = 1;
 
@@ -103,6 +101,10 @@ scoreanimation = seconds;
 score = 0;
 endgame = true;
 difficultypage = true;
+
+//dummy variables
+PATS = 3;
+prize = 0;
 
 //music handler, intro >> main theme, main theme is preloaded
 music = new Audio("Audio Files/EvoIslandMainTheme.ogg")
@@ -189,11 +191,11 @@ textmaker("YOUR TIME IS UP",260,125,25,true);
         
    if(timer !== 0){
         
-   collision(mousex,mousey,0,0,(264-gifload[21].width/6)*(hs/297),200*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297)) ? ctx.globalAlpha = 1 : ctx.globalAlpha = 0.85;
+   (collision(mousex,mousey,0,0,(264-gifload[21].width/6)*(hs/297),200*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297))&&PATS > 0) ? ctx.globalAlpha = 1 : (PATS <= 0) ? ctx.globalAlpha = 0.5 : ctx.globalAlpha = 0.85;
     ctx.drawImage(!mouseup&&ctx.globalAlpha == 1 ? gifload[30] : gifload[21],(264-gifload[21].width/6)*(hs/297),200*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297));
    
      //Score sending goes here, can't send if timer is up
-       if(collision(mousex,mousey,0,0,(264-gifload[21].width/6)*(hs/297),200*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297))&&mousedown)
+       if(collision(mousex,mousey,0,0,(264-gifload[21].width/6)*(hs/297),200*(hs/297),gifload[21].width/3*(hs/297),gifload[21].height/3*(hs/297))&&mousedown&&PATS > 0)
      {   
       difficultypage = true; 
       music.play();
@@ -201,6 +203,8 @@ textmaker("YOUR TIME IS UP",260,125,25,true);
       pixpets = [];
       pixpets.push(new pixpet("Drax",3,5));
       items = [];
+      PATS -= 1;
+      prize += score/250;
       
       if(timerbonus == 1){
       timer = false;
